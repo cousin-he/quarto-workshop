@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 9001
+    browser: true
+
+book:
+  title: "Scientific publication with Quarto"
+  subtitle: "COUSIN Workshops Series"
+  author:
+    - "Felipe Ortega"
+    - "María Jesús Algar"
+  date: "2024/12/20"
+  chapters:
+    - index.qmd
+    - part: "Quarto"
+      chapters:
+        - 01-quarto.qmd
+        - 02-doctypes.qmd
+        - 03-workflow.qmd
+        - 04-singledoc.qmd
+    - part: "Quarto books"
+      chapters:
+        - 05-books.qmd
+        - 06-field-guide.qmd
+    - part: "Publications"
+      chapters:
+        - 07-manuscripts.qmd
+        - 08-FAIR.qmd
+    - 09-add-resources.qmd
+    - references.qmd
+  appendices:
+    - A-command-ref.qmd
+    - B-IDEs.qmd
+    - C-packages.qmd
+    - D-pdf-latex.qmd
+    - app-refs.qmd
+  
+  downloads: [pdf]
+  repo-url: https://github.com/cousin-he/quarto-workshop
+  repo-actions: [source, edit, issue]
+
+lang: en
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+  pdf:
+    documentclass: scrbook
+    classoption:
+      - a4paper 
+      - oneside
+      - parskip=half+
+      - numbers=noenddot
+      - cleardoublepage=empty
+      - DIV=15
+    hyperrefoptions: 
+      - linktocpage=true
+    include-in-header: 
+       text: |
+        % Line and page breaking
+        \sloppy
+        \clubpenalty = 10000
+        \widowpenalty = 10000
+        \brokenpenalty = 10000
+
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          commandchars=\\\{\},
+          breaklines, breaknonspaceingroup, breakanywhere
+        }
+

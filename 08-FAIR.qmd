@@ -1,0 +1,16 @@
+# FAIR data principles
+
+## Overview
+
+
+
+## Source code publication
+
+
+## Dataset publication
+
+
+## Reference management
+
+
+

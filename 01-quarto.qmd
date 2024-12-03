@@ -1,0 +1,42 @@
+# Scientific documents
+
+In a typical research scenario, scholars and practitioners 
+producing scientific documents must face a complex task, full
+of nuances and potentially problematic steps.
+
+Figure X.X depicts an schematic overview of a classical
+workflow for scientific document creation. Usually, the central asset
+is a LaTeX or Word master file containing the document (manuscript,
+technical report, thesis, etc.). 
+
+FIXME: INSERT FIGURE HERE
+
+
+This master file is progressively
+populated with content from different sources, like:
+
+- Figures and charts resulted from running software code.
+- Tables and summaries describing datasets and results.
+- Evaluation and results from statistical and/or machine learning models.
+- Bibliographic references.
+
+Many of these elements force users to constantly rerun external programs,
+procedures and tools to update these elements and incorporate the new
+versions to the master file. Admittedly, this is a mostly manual, tediuos
+process which is also quite prone to errors and overlooks. "Wait! We forgot
+to update Figure A". "Are these the latest evaluation results from model M?"
+"Do we use the last version of dataset D?" These are common inquiries that
+recurrently surface during this process.
+
+However, it would be great if that manual and at times frustrating process
+were not necessary. Do we have any alternative? Yes, we do. The answer to
+our problems is a powerful concept called **literate programming**.
+
+Literate programming
+
+
+Reproducible research
+
+
+
+Quarto for scientific publishing

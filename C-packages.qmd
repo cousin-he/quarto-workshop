@@ -1,0 +1,39 @@
+# Useful R packages
+
+## Ecology
+
+
+## Data visualisation
+
+
+## Data processing
+
+### Tidyverse
+
+### Alternatives to the Tidyverse
+
+### Pipelines
+
+## Spatial data
+
+### `sf` (Simple Features)
+
+### `terra`
+
+## Time series
+
+### Tidyverts
+
+## Data visualisation
+
+### `ggplot2`
+
+## Data analysis and Machine Learning
+
+
+### Tidymodels
+
+
+### mlr3
+
+
