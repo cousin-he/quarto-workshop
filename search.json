@@ -1,0 +1,505 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Scientific publication with Quarto",
+    "section": "",
+    "text": "Preface\nThis workshop describes how to use Quarto, software for producing scientific documents and publications, in ecology and plant research.\nQuarto is a powerful and versatile tool for researchers implementing reproducible workflows. The quest for open-access research, including the final product (manuscripts) and ancillary research materials like source code, datasets, figures, pipelines or setup files, has become a prominent concern among scholars and practitioners in many fields. Prestigious publications require authors to submit these materials alongside manuscript drafts to let other colleagues reproduce and validate the results, replicate studies in new cohorts or improve their interpretability.\nQuarto combines formatted text and executable source code chunks into a single document. Code chunks can be written in different programming languages such as R, Python, Julia or Observable. As we will see, it is possible to combine different programming languages in the same document or collection of documents, increasing the flexibility of this tool.\nThis is a practical guide, presenting hands-on examples and code to produce your own Quarto documents quickly. In addition, key concepts and best practices are also presented to steer new Quarto apprentices in the right direction.\nTo learn more about Quarto visit the comprehensive guide. Quarto can produce standalone documents, books like this one, as well as complete websites.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "01-quarto.html",
+    "href": "01-quarto.html",
+    "title": "1  Scientific documents",
+    "section": "",
+    "text": "In a typical research scenario, scholars and practitioners producing scientific documents must face a complex task, full of nuances and potentially problematic steps.\nFigure X.X depicts an schematic overview of a classical workflow for scientific document creation. Usually, the central asset is a LaTeX or Word master file containing the document (manuscript, technical report, thesis, etc.).\nFIXME: INSERT FIGURE HERE\nThis master file is progressively populated with content from different sources, like:\n\nFigures and charts resulted from running software code.\nTables and summaries describing datasets and results.\nEvaluation and results from statistical and/or machine learning models.\nBibliographic references.\n\nMany of these elements force users to constantly rerun external programs, procedures and tools to update these elements and incorporate the new versions to the master file. Admittedly, this is a mostly manual, tediuos process which is also quite prone to errors and overlooks. “Wait! We forgot to update Figure A”. “Are these the latest evaluation results from model M?” “Do we use the last version of dataset D?” These are common inquiries that recurrently surface during this process.\nHowever, it would be great if that manual and at times frustrating process were not necessary. Do we have any alternative? Yes, we do. The answer to our problems is a powerful concept called literate programming.\nLiterate programming\nReproducible research\nQuarto for scientific publishing",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Scientific documents</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html",
+    "href": "02-doctypes.html",
+    "title": "2  Document types",
+    "section": "",
+    "text": "2.1 Individual documents",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#books",
+    "href": "02-doctypes.html#books",
+    "title": "2  Document types",
+    "section": "2.2 Books",
+    "text": "2.2 Books",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#manuscripts-scholarly-articles",
+    "href": "02-doctypes.html#manuscripts-scholarly-articles",
+    "title": "2  Document types",
+    "section": "2.3 Manuscripts (scholarly articles)",
+    "text": "2.3 Manuscripts (scholarly articles)",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#presentations",
+    "href": "02-doctypes.html#presentations",
+    "title": "2  Document types",
+    "section": "2.4 Presentations",
+    "text": "2.4 Presentations",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#websites",
+    "href": "02-doctypes.html#websites",
+    "title": "2  Document types",
+    "section": "2.5 Websites",
+    "text": "2.5 Websites",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#dashboards",
+    "href": "02-doctypes.html#dashboards",
+    "title": "2  Document types",
+    "section": "2.6 Dashboards",
+    "text": "2.6 Dashboards",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html",
+    "href": "03-workflow.html",
+    "title": "3  Quarto workflow",
+    "section": "",
+    "text": "3.1 Required tools",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#producing-html",
+    "href": "03-workflow.html#producing-html",
+    "title": "3  Quarto workflow",
+    "section": "3.2 Producing HTML",
+    "text": "3.2 Producing HTML",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#producing-pdf",
+    "href": "03-workflow.html#producing-pdf",
+    "title": "3  Quarto workflow",
+    "section": "3.3 Producing PDF",
+    "text": "3.3 Producing PDF\n\n3.3.1 Customising PDF documents",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html",
+    "href": "04-singledoc.html",
+    "title": "4  Single Documents",
+    "section": "",
+    "text": "4.1 Preamble",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Single Documents</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#html-output",
+    "href": "04-singledoc.html#html-output",
+    "title": "4  Single Documents",
+    "section": "4.2 HTML output",
+    "text": "4.2 HTML output",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Single Documents</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#pdf-output",
+    "href": "04-singledoc.html#pdf-output",
+    "title": "4  Single Documents",
+    "section": "4.3 PDF output",
+    "text": "4.3 PDF output",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Single Documents</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#producing-documents",
+    "href": "04-singledoc.html#producing-documents",
+    "title": "4  Single Documents",
+    "section": "4.4 Producing documents",
+    "text": "4.4 Producing documents\n\n4.4.1 Preview\n\n\n4.4.2 Selecting output type\n\n\n4.4.3 Further Customisation",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Single Documents</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html",
+    "href": "05-books.html",
+    "title": "5  Creating books",
+    "section": "",
+    "text": "5.1 Authoring tools",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating books</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html#reference-management",
+    "href": "05-books.html#reference-management",
+    "title": "5  Creating books",
+    "section": "5.2 Reference management",
+    "text": "5.2 Reference management",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating books</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html#customisation-and-templates",
+    "href": "05-books.html#customisation-and-templates",
+    "title": "5  Creating books",
+    "section": "5.3 Customisation and templates",
+    "text": "5.3 Customisation and templates",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating books</span>"
+    ]
+  },
+  {
+    "objectID": "06-field-guide.html",
+    "href": "06-field-guide.html",
+    "title": "6  Creting a field guide",
+    "section": "",
+    "text": "6.1 Templates",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Creting a field guide</span>"
+    ]
+  },
+  {
+    "objectID": "06-field-guide.html#project-management",
+    "href": "06-field-guide.html#project-management",
+    "title": "6  Creting a field guide",
+    "section": "6.2 Project management",
+    "text": "6.2 Project management",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Creting a field guide</span>"
+    ]
+  },
+  {
+    "objectID": "06-field-guide.html#publishing",
+    "href": "06-field-guide.html#publishing",
+    "title": "6  Creting a field guide",
+    "section": "6.3 Publishing",
+    "text": "6.3 Publishing",
+    "crumbs": [
+      "Quarto books",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Creting a field guide</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html",
+    "href": "07-manuscripts.html",
+    "title": "7  Scientific articles",
+    "section": "",
+    "text": "7.1 Replicability in scientific publications",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#publication-ready-figures",
+    "href": "07-manuscripts.html#publication-ready-figures",
+    "title": "7  Scientific articles",
+    "section": "7.2 Publication-ready figures",
+    "text": "7.2 Publication-ready figures",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#journal-article-templates",
+    "href": "07-manuscripts.html#journal-article-templates",
+    "title": "7  Scientific articles",
+    "section": "7.3 Journal article templates",
+    "text": "7.3 Journal article templates",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#examples-and-best-practices",
+    "href": "07-manuscripts.html#examples-and-best-practices",
+    "title": "7  Scientific articles",
+    "section": "7.4 Examples and best practices",
+    "text": "7.4 Examples and best practices",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html",
+    "href": "08-FAIR.html",
+    "title": "8  FAIR data principles",
+    "section": "",
+    "text": "8.1 Overview",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#source-code-publication",
+    "href": "08-FAIR.html#source-code-publication",
+    "title": "8  FAIR data principles",
+    "section": "8.2 Source code publication",
+    "text": "8.2 Source code publication",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#dataset-publication",
+    "href": "08-FAIR.html#dataset-publication",
+    "title": "8  FAIR data principles",
+    "section": "8.3 Dataset publication",
+    "text": "8.3 Dataset publication",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#reference-management",
+    "href": "08-FAIR.html#reference-management",
+    "title": "8  FAIR data principles",
+    "section": "8.4 Reference management",
+    "text": "8.4 Reference management",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html",
+    "href": "09-add-resources.html",
+    "title": "9  Additional resources",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, D. E. (1984). Literate programming. Comput. J., 27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Additional resources</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, D. E. (1984). Literate programming. Comput. J.,\n27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html",
+    "href": "A-command-ref.html",
+    "title": "Appendix A — Code reference",
+    "section": "",
+    "text": "A.1 Quarto statements",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Code reference</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#r-statements",
+    "href": "A-command-ref.html#r-statements",
+    "title": "Appendix A — Code reference",
+    "section": "A.2 R statements",
+    "text": "A.2 R statements",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Code reference</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html",
+    "href": "B-IDEs.html",
+    "title": "Appendix B — Integrated Development Environments for Quarto",
+    "section": "",
+    "text": "B.1 R Studio",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Integrated Development Environments for Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html#visual-studio",
+    "href": "B-IDEs.html#visual-studio",
+    "title": "Appendix B — Integrated Development Environments for Quarto",
+    "section": "B.2 Visual Studio",
+    "text": "B.2 Visual Studio",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Integrated Development Environments for Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html#positron",
+    "href": "B-IDEs.html#positron",
+    "title": "Appendix B — Integrated Development Environments for Quarto",
+    "section": "B.3 Positron",
+    "text": "B.3 Positron",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Integrated Development Environments for Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html",
+    "href": "C-packages.html",
+    "title": "Appendix C — Useful R packages",
+    "section": "",
+    "text": "C.1 Ecology",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#data-visualisation",
+    "href": "C-packages.html#data-visualisation",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.2 Data visualisation",
+    "text": "C.2 Data visualisation",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#data-processing",
+    "href": "C-packages.html#data-processing",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.3 Data processing",
+    "text": "C.3 Data processing\n\nC.3.1 Tidyverse\n\n\nC.3.2 Alternatives to the Tidyverse\n\n\nC.3.3 Pipelines",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#spatial-data",
+    "href": "C-packages.html#spatial-data",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.4 Spatial data",
+    "text": "C.4 Spatial data\n\nC.4.1 sf (Simple Features)\n\n\nC.4.2 terra",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#time-series",
+    "href": "C-packages.html#time-series",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.5 Time series",
+    "text": "C.5 Time series\n\nC.5.1 Tidyverts",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#data-visualisation-1",
+    "href": "C-packages.html#data-visualisation-1",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.6 Data visualisation",
+    "text": "C.6 Data visualisation\n\nC.6.1 ggplot2",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#data-analysis-and-machine-learning",
+    "href": "C-packages.html#data-analysis-and-machine-learning",
+    "title": "Appendix C — Useful R packages",
+    "section": "C.7 Data analysis and Machine Learning",
+    "text": "C.7 Data analysis and Machine Learning\n\nC.7.1 Tidymodels\n\n\nC.7.2 mlr3",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful R packages</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html",
+    "href": "D-pdf-latex.html",
+    "title": "Appendix D — Producing PDF documents",
+    "section": "",
+    "text": "D.1 PDF documents with Quarto",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Producing PDF documents</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#quick-latex-primer",
+    "href": "D-pdf-latex.html#quick-latex-primer",
+    "title": "Appendix D — Producing PDF documents",
+    "section": "D.2 Quick LaTeX primer",
+    "text": "D.2 Quick LaTeX primer",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Producing PDF documents</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#available-templates",
+    "href": "D-pdf-latex.html#available-templates",
+    "title": "Appendix D — Producing PDF documents",
+    "section": "D.3 Available templates",
+    "text": "D.3 Available templates",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Producing PDF documents</span>"
+    ]
+  }
+]
