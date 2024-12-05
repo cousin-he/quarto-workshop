@@ -6,7 +6,7 @@ project:
     browser: true
 
 book:
-  title: "Scientific publication with Quarto"
+  title: "Scientific documents with Quarto"
   subtitle: "COUSIN Workshops Series"
   author:
     - "Felipe Ortega"
