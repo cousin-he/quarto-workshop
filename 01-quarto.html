@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Scientific documents – Scientific publication with Quarto</title>
+<title>1&nbsp; Scientific documents – Scientific documents with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -97,10 +117,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Scientific publication with Quarto</a> 
+      <a href="./">Scientific documents with Quarto</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/cousin-he/quarto-workshop" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Scientific-publication-with-Quarto.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Scientific-documents-with-Quarto.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -256,8 +276,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link active" data-scroll-target="#literate-programming"><span class="header-section-number">1.1</span> Literate programming</a></li>
+  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link" data-scroll-target="#reproducible-research"><span class="header-section-number">1.2</span> Reproducible research</a>
+  <ul class="collapse">
+  <li><a href="#reproducibility-and-replicability" id="toc-reproducibility-and-replicability" class="nav-link" data-scroll-target="#reproducibility-and-replicability"><span class="header-section-number">1.2.1</span> Reproducibility and replicability</a></li>
+  <li><a href="#replication-levels" id="toc-replication-levels" class="nav-link" data-scroll-target="#replication-levels"><span class="header-section-number">1.2.2</span> Replication levels</a></li>
+  <li><a href="#replicability-tools" id="toc-replicability-tools" class="nav-link" data-scroll-target="#replicability-tools"><span class="header-section-number">1.2.3</span> Replicability tools</a></li>
+  </ul></li>
+  <li><a href="#quarto-for-scientific-publications" id="toc-quarto-for-scientific-publications" class="nav-link" data-scroll-target="#quarto-for-scientific-publications"><span class="header-section-number">1.3</span> Quarto for scientific publications</a></li>
+  <li><a href="#sec-quarto-install" id="toc-sec-quarto-install" class="nav-link" data-scroll-target="#sec-quarto-install"><span class="header-section-number">1.4</span> Quartion installation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/01-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/01-quarto.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -281,23 +315,212 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In a typical research scenario, scholars and practitioners producing scientific documents must face a complex task, full of nuances and potentially problematic steps.</p>
-<p>Figure X.X depicts an schematic overview of a classical workflow for scientific document creation. Usually, the central asset is a LaTeX or Word master file containing the document (manuscript, technical report, thesis, etc.).</p>
-<p>FIXME: INSERT FIGURE HERE</p>
-<p>This master file is progressively populated with content from different sources, like:</p>
+<p>In their daily work, students, academics and scientific specialists produce a large amount of documentation of all kinds: laboratory notes, lectures, memos, technical reports and, above all, scientific articles to publish their discoveries and advances in an area of ​​knowledge. Normally, the creation of this type of scientific documents involves a large number of tasks involving different tools and possible points of failure.</p>
+<p><a href="#fig-proc-sci-docs" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows a schematic overview of a classic workflow for creating scientific documents. The main element is often a word processor master file (Word, OpenOffice/LibreOffice, etc.), a web page, or a LaTeX file (if we are creating a PDF document) that holds all contents.</p>
+<div id="fig-proc-sci-docs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proc-sci-docs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/process-scientific-docs-en.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proc-sci-docs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Creation process for cientific articles and documentation.
+</figcaption>
+</figure>
+</div>
+<p>This master file is filled with content from a variety of sources, such as:</p>
 <ul>
-<li>Figures and charts resulted from running software code.</li>
-<li>Tables and summaries describing datasets and results.</li>
-<li>Evaluation and results from statistical and/or machine learning models.</li>
-<li>Bibliographic references.</li>
+<li>figures and diagrams generated manually or through software code (such as data visualization charts);</li>
+<li>tables and summaries describing data sets and results;</li>
+<li>results and evaluation of the performance of models or algorithms; statistical or machine learning;</li>
+<li>mathematical formulas and equations;</li>
+<li>data tables and other useful information;</li>
+<li>bibliographic references (usually generated with the help of some bibliographic information management program).</li>
 </ul>
-<p>Many of these elements force users to constantly rerun external programs, procedures and tools to update these elements and incorporate the new versions to the master file. Admittedly, this is a mostly manual, tediuos process which is also quite prone to errors and overlooks. “Wait! We forgot to update Figure A”. “Are these the latest evaluation results from model M?” “Do we use the last version of dataset D?” These are common inquiries that recurrently surface during this process.</p>
-<p>However, it would be great if that manual and at times frustrating process were not necessary. Do we have any alternative? Yes, we do. The answer to our problems is a powerful concept called <strong>literate programming</strong>.</p>
-<p>Literate programming</p>
-<p>Reproducible research</p>
-<p>Quarto for scientific publishing</p>
+<p>Many of these elements force users to run external tools and programs, procedures, and other tasks over and over again to then incorporate the new results into the master file. We must admit that this process, which is mostly manual, is not only tedious but also very prone to errors or oversights. “Wait! I forgot to update Figure 1.” “Are you sure these are the latest evaluation results for model <em>M</em>?” “Have you checked that we have uploaded the latest version of the data file <em>D</em>?” These are common questions that arise in the day-to-day work of scientific teams.</p>
+<p>However, it would be great if it were not necessary to carry out all this manual and sometimes very frustrating process manually. Do we have any alternative to avoid it? Yes, we do. The answer to our needs is provided by a very powerful concept: <strong>literate programming</strong>.</p>
+<section id="literate-programming" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="literate-programming"><span class="header-section-number">1.1</span> Literate programming</h2>
+<p>The concept of literary programming was coined by Professor Donald E. <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span>. Yes, you read that right, more than 40 years ago. This concept states that it should be possible to integrate, in a single scientific document, formatted text and results of the execution of software code to compose said document dynamically. So, why has it taken us so long to put this idea into practice? Knuth’s vision, although very ahead of its time, was correct, but the technology of the time did not allow it to be put into practice.</p>
+<p>However, today we have all the essential elements to make it real. What’s more, we have a tool, Quarto, that lets us automate and manage the whole process of creating literary programming documents quickly and reliably.</p>
+</section>
+<section id="reproducible-research" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="reproducible-research"><span class="header-section-number">1.2</span> Reproducible research</h2>
+<p>For many decades, the scientific method has been based on the publication of research papers describing the results of data analysis and experiments. In all cases, it is essential to be able to trust the conditions, the data collected, the method of analysis and execution of the experiments, as well as the various kinds of tools, including software, that the authors of the publication used to carry it out.</p>
+<p>However, the numerous advances in recent years in the tools and methods of analysis make it much easier to check the results of these analyses. We might assume that this makes the work of scientists much easier, but in reality the opposite is true. Let us look at some examples:</p>
+<ul>
+<li><p><strong>Oncology</strong> <span class="citation" data-cites="begley2012drug">(<a href="references.html#ref-begley2012drug" role="doc-biblioref">Begley &amp; Ellis, 2012</a>)</span>: The Biotechnology Department of the firm Amgen (Thousand Oaks, CA, USA) was able to confirm only 6 of a total of 53 emblematic research articles published in this area. Bayer HealthCare (Germany) was able to validate only 25% of the studies analyzed.</p></li>
+<li><p><strong>Psychology</strong> <span class="citation" data-cites="wicherts2006poor">(<a href="references.html#ref-wicherts2006poor" role="doc-biblioref">Wicherts et al., 2006</a>)</span>: 73% of the authors of a total of 249 articles published by the APA did not respond within a period of 6 months to the questions and requests formulated about the data they used in their research.</p></li>
+<li><p><strong>Economics and Finance</strong> <span class="citation" data-cites="burman2010call">(<a href="references.html#ref-burman2010call" role="doc-biblioref">Burman et al., 2010</a>)</span>: A comparison of different software packages applied in the execution of various financial and statistical model analyses shows that each of these packages produces <em>very different</em> results using <em>the same statistical techniques</em> directly applied to <em>identical data</em> as those used in the original publication.</p></li>
+</ul>
+<p>In fact, articles have even appeared suggesting that many of the results published in areas such as Medicine may not be entirely reliable <span class="citation" data-cites="ioannidis2005most">(<a href="references.html#ref-ioannidis2005most" role="doc-biblioref">Ioannidis, 2005</a>)</span>. As a result of all these recent findings, a great controversy has been generated throughout the scientific and research community, accompanied by a deep <a href="https://www.theatlantic.com/magazine/archive/2010/11/lies-damned-lies-and-medical-science/308269/">crisis of confidence</a>.</p>
+<p>Nevertheless, as a well-known comic strip about the academic world and research (see <a href="#fig-phd-comic-revs" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>) very well describes, the process of developing scientific publications is based primarily on the continuous review of methods and results (starting with the students themselves and their supervisors).</p>
+<div id="fig-phd-comic-revs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-phd-comic-revs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/phd101212s.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phd-comic-revs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Comic strip representing the review model for scientific publications. Source: <a href="http://phdcomics.com/comics/archive.php?comicid=1531">PhD comics</a>.
+</figcaption>
+</figure>
+</div>
+<p>The <a href="#fig-evol-research-fraud" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> shows a graph published in the prestigious journal Science Magazine <span class="citation" data-cites="brainard2018massive">(<a href="references.html#ref-brainard2018massive" role="doc-biblioref">Brainard et al., 2018</a>)</span>, which represents the data on the evolution of the number of research articles retracted or withdrawn for various reasons, between 1997 and 2014. In this graph, we can see how the improvement of tools and the greater availability of resources allow for the analysis and review of a greater volume of publications and analyses, which allows for the detection of a greater number of problematic cases.</p>
+<div id="fig-evol-research-fraud" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-evol-research-fraud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/research-fraud.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evol-research-fraud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Evolution of the number of scientific publications retracted or withdrawn for various reasons, between 1997 and 2014. Source: <a href="https://www.sciencemag.org/news/2018/10/about-these-data">Science Magazine</a> <span class="citation" data-cites="brainard2018massive">(<a href="references.html#ref-brainard2018massive" role="doc-biblioref">Brainard et al., 2018</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<section id="reproducibility-and-replicability" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="reproducibility-and-replicability"><span class="header-section-number">1.2.1</span> Reproducibility and replicability</h3>
+<p>There is often talk of <em>reproducing</em> and <em>replicating</em> a data analysis or a scientific experiment <span class="citation" data-cites="leek2015reproducible">(<a href="references.html#ref-leek2015reproducible" role="doc-biblioref">Leek &amp; Peng, 2015</a>)</span>. However, many evidences can found showing that there are incompatible definitions of these two and other related terms <span class="citation" data-cites="barba2018terminologies">(<a href="references.html#ref-barba2018terminologies" role="doc-biblioref">Barba, 2018</a>)</span>. Be very careful, therefore, because depending on the scientific community or the field of knowledge in which we find ourselves, the meaning of these two terms may even be <em>entirely opposite</em> to their accepted definition in other areas <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Here we will stick to the definition accepted in a large number of areas, including statistics or scientific computing <span class="citation" data-cites="barba2018terminologies">(see <a href="references.html#ref-barba2018terminologies" role="doc-biblioref">Barba, 2018, p. 33</a>)</span>:</p>
+<ul>
+<li><p><strong>Reproducibility</strong>: It is defined as the ability to recompute the results of an analysis, with the same data that were used in the original analysis, and knowing the details of the sequence (<em>workflow</em> or <em>pipeline</em>) of operations that make up said analysis. Certain premises must be able to be guaranteed:</p></li>
+<li><p>If we use the same tools (e.g.&nbsp;R, a certain list of packages, the same versions of all packages and dependencies), as well as the same code (<em>R scripts</em>) on the same data, the results and conclusions must be consistent with those of the original analysis.</p></li>
+<li><p>The authors of the original analysis must provide all the elements (data, code and procedure used) to allow the analysis to be reproducible <span class="citation" data-cites="barba2018terminologies">(<a href="references.html#ref-barba2018terminologies" role="doc-biblioref">Barba, 2018</a>)</span>.</p></li>
+<li><p><strong>Replicability</strong>: It is defined as the ability to perform an experiment or analysis independent of the original, that addresses the same objective but on a set of data different from that used in the initial study. If the results are not consistent, it will be necessary to carry out more replications and harmonize the results and conclusions through appropriate techniques, such as <strong>meta-analysis</strong>.</p></li>
+</ul>
+</section>
+<section id="replication-levels" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="replication-levels"><span class="header-section-number">1.2.2</span> Replication levels</h3>
+<p>Depending on the elements published by the authors of the original study, as well as the level of detail with which the process for carrying out the study is described, the steps that have been followed and the tools used, we have different levels of replicability or reproducibility, represented in the <span class="quarto-unresolved-ref">?fig-spectrum-replica</span>.</p>
+<ul>
+<li><p><em>Not reproducible</em>: No data, code or any specific description of the implementation of the study or analysis is provided. Many scientific publications no longer accept publishing articles under these conditions.</p></li>
+<li><p><em>Code</em> or <em>Data</em>: A good number of publishers request that the data sets used in the analysis or study of the publication be accessible through a URL, either because they are available in a public repository or because the authors of the article have published it. Likewise, many publications require that the software code to carry out the analysis is also publicly accessible, in an open source repository or in a freely accessible version control service project.</p></li>
+<li><p><em>Code and data</em>: Ideally, both the code and the data should be publicly accessible for anyone who wants to examine them or use them to reproduce the results (validation) or replicate the analysis with other data or other cases.</p></li>
+<li><p><em>Runtime environment and linked data</em>: A further step to facilitate the reproducibility of studies consists of publishing code and metadata files with more precise information about the programming language, the software packages used and any other dependencies necessary to carry out the same study or analysis. Another variant to facilitate reproducibility is to encapsulate the code and dependencies in a preconfigured virtual container, which can be downloaded and executed directly.</p></li>
+<li><p><em>Gold standard</em>: The most advanced level would consist of documenting all the procedures performed during the study or analysis, including the coding of the tasks of obtaining, cleaning and preparing the data, as well as the generation of graphics to visualize the results or any other results derived from the study.</p></li>
+</ul>
+<div id="fig-espectro-replica" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-espectro-replica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/spectrum-replica.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-espectro-replica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Replication levels spectrum in scientific publications. Source: <span class="citation" data-cites="peng2011reproducible">Peng (<a href="references.html#ref-peng2011reproducible" role="doc-biblioref">2011</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="replicability-tools" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="replicability-tools"><span class="header-section-number">1.2.3</span> Replicability tools</h3>
+<p>Certain technologies and tools that have become more sophisticated and refined in recent years are making it easier to replicate data processing and analysis.</p>
+<ul>
+<li>Version Control Systems for software code (SCV): tools such as Git, Mercurial and web services such as GitHub or GitLab have popularized the creation and publication of projects that allow the management of the software code that has been created, controlling the changes and the released versions. Web services also integrate a good number of tools to support different facets of the software development process, such as the generation of documentation, manuals and examples, error reports and requests for improvements, continuous integration and continuous deployment (CI/CD), systematic testing of the generated code, etc. If you have not yet considered how using a source code version control tool can benefit you, take a look at <a href="#fig-cvs" class="quarto-xref">Figure&nbsp;<span>1.5</span></a> where you will relive a situation that is unfortunately very common among researchers and scientists who develop software solutions.</li>
+</ul>
+<div id="fig-cvs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cvs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/phd052810s.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cvs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: Software version control. Source: <a href="https://phdcomics.com/comics/archive_print.php?comicid=1323">PhD Comics</a>
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>Software virtualization and containers: In a technological environment dominated by the contracting and deployment of computing infrastructure and services in cloud computing architectures, packaging and virtualization tools for software applications and services that can be installed and deployed in a short time have revolutionized the way software products are published and managed, including data processing and analysis products.</p></li>
+<li><p>Data version control: In a similar way to SCV for source code, software is appearing to apply the same principles to data files. In this way, we can control different versions of each data file, modifications made to them, etc. One of these tools is <a href="https://dvc.org/">Data Version Control</a> (DVC), which allows <a href="https://dvc.org/doc/use-cases/versioning-data-and-models">versioning of data and models</a>. As a result, we can know at all times which version of the data and which list of <em>features</em> have been included in each model considered during the analysis, keeping the descriptive information about these three essential components that must always be cohesive.</p></li>
+</ul>
+<div id="fig-project-versions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-project-versions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/project-versions.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-project-versions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: Data, code and model versioning example maintained by DVC. Source: <a href="https://dvc.org/doc/use-cases/versioning-data-and-models">DVC Documentation</a>.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>Model and experiment management: Another type of machine learning project management tool is one that allows the organization, monitoring, comparison, and selection of the experiments and models we have carried out. One of the most recent notable examples is <a href="https://mlflow.org/docs/latest/index.html">ML Flow</a>, which provides support for model tuning, evaluation, and optimization, deployment of models in production environments, creation of a registry of pre-trained models, etc. Of course, it is possible to combine this type of tool with others such as DVC, creating a comprehensive management environment for our projects.</p></li>
+<li><p>Creation and management of data processing pipelines: the last essential element in any data processing and analysis project that must take care of scalability is a tool for creation and management of data processing and analysis flows or pipelines. The set of all the pipelines in our project make up the general workflow of the project. These tools are known as data or workflow orchestrators. In this category, we have both very powerful and feature-packed tools such as <a href="https://airflow.apache.org/">Apache Airflow</a> or <a href="https://www.prefect.io/">Prefect</a> and simpler and more straightforward ones such as <a href="https://luigi.readthedocs.io/en/stable/">Luigi</a>.</p></li>
+</ul>
+<p>Of course, the R community has not remained oblivious to these new trends, in particular the <a href="https://ropensci.org/">R OpenSci</a> initiative, within which we find many <a href="https://ropensci.org/packages/">packages</a> (published in the official CRAN repository) that cover various aspects of scientific work, including the management of <em>pipelines</em> and <em>workflows</em> through the <a href="https://docs.ropensci.org/targets/"><code>targets</code></a> package.</p>
+<ul>
+<li><a href="https://books.ropensci.org/targets/">User manual for the R package <code>targets</code></a>.</li>
+</ul>
+</section>
+</section>
+<section id="quarto-for-scientific-publications" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="quarto-for-scientific-publications"><span class="header-section-number">1.3</span> Quarto for scientific publications</h2>
+<p>Now that we know the fundamental concept on which Quarto works and its application to achieve a higher level of reproducibility and transparency in our scientific process, we are going to explain in more detail the process that Quarto follows to compose a document. The <a href="#fig-how-it-works" class="quarto-xref">Figure&nbsp;<span>1.7</span></a> presents a diagram with the document creation process and the elements and tools that come into play to achieve it.</p>
+<div id="fig-how-it-works" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-how-it-works-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/quarto-process-overview.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-how-it-works-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.7: Content creation process with Quarto.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Quarto</strong>: a software that allows you to create scientific documentation following the principles of literary programming.</li>
+<li><strong>Knitr and programming language</strong>: the <code>knitr</code> package is responsible for the connection with an interpreter of a programming language (R, Python, Julia) that can be executed in a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> environment, in order to be able to execute software code fragments integrated into the document and generate content in Markdown format as a result.</li>
+<li><strong>Markdown</strong> (formatted content): a textual content markup language that allows easy formatting of the information in our documents created with Quarto.</li>
+<li><strong>Pandoc</strong> (universal translator of document formats): this software receives the content already formatted using the Markdown standard, to convert it into the selected output type. There are several options available: HTML, PDF or Word, as well as slides, websites or interactive panels (<em>dashboards</em>).</li>
+</ul>
+</section>
+<section id="sec-quarto-install" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-quarto-install"><span class="header-section-number">1.4</span> Quartion installation</h2>
+<p>To install the latest version of Quarto software on your system, point your web browser to the page <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>. Here, download and install the file corresponding to your operating system.</p>
+<p>At this time, the latest version of Quarto available is <code>1.5.57</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Software requirements to generate PDF documents
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By default, the output format of documents generated with Quarto is HTML. If we want to generate PDF documents, we need to have a LaTeX distribution installed. For more information, see <span class="quarto-unresolved-ref">?sec-pdf-reqs</span>.</p>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-barba2018terminologies" class="csl-entry" role="listitem">
+Barba, L. A. (2018). Terminologies for reproducible research. <em>arXiv Preprint arXiv:1802.03311</em>.
+</div>
+<div id="ref-begley2012drug" class="csl-entry" role="listitem">
+Begley, C., &amp; Ellis, L. (2012). <em><span class="nocase">Drug development: Raise standards for preclinical cancer research. Nature.[Online]. 483 (7391)</span></em>.
+</div>
+<div id="ref-brainard2018massive" class="csl-entry" role="listitem">
+Brainard, J., You, J., et al. (2018). What a massive database of retracted papers reveals about science publishing’s <span>“death penalty.”</span> <em>Science</em>, <em>25</em>(1), 1–5.
+</div>
+<div id="ref-burman2010call" class="csl-entry" role="listitem">
+Burman, L. E., Reed, W. R., &amp; Alm, J. (2010). A call for replication studies. <em>Public Finance Review</em>, <em>38</em>(6), 787–793.
+</div>
+<div id="ref-ioannidis2005most" class="csl-entry" role="listitem">
+Ioannidis, J. P. (2005). Why most published research findings are false. <em>PLoS Medicine</em>, <em>2</em>(8), e124.
+</div>
+<div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, D. E. (1984). Literate programming. <em>Comput. J.</em>, <em>27</em>(2), 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>
+</div>
+<div id="ref-leek2015reproducible" class="csl-entry" role="listitem">
+Leek, J. T., &amp; Peng, R. D. (2015). <span class="nocase">Reproducible research can still be wrong: Adopting a prevention approach</span>. <em>Proceedings of the National Academy of Sciences</em>, <em>112</em>(6), 1645–1646.
+</div>
+<div id="ref-peng2011reproducible" class="csl-entry" role="listitem">
+Peng, R. D. (2011). Reproducible research in computational science. <em>Science</em>, <em>334</em>(6060), 1226–1227.
+</div>
+<div id="ref-wicherts2006poor" class="csl-entry" role="listitem">
+Wicherts, J. M., Borsboom, D., Kats, J., &amp; Molenaar, D. (2006). The poor availability of psychological research data for reanalysis. <em>American PAsychologist</em>, <em>61</em>(7), 726.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Among the most important examples of definitions that contradict those we give in this workshop are those adopted by the Federation of American Societies for Experimental Biology (FASEB), in immunology and microbiology, as well as those adopted by the Association for Computer Machinery (ACM) in computer science.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -737,4 +960,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/01-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/01-quarto.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/01-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/01-quarto.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
