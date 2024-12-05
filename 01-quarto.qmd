@@ -172,7 +172,7 @@ downloaded and executed directly.
 analysis, including the coding of the tasks of obtaining, cleaning and preparing the data, as well as the generation
 of graphics to visualize the results or any other results derived from the study.
 
-![Replication levels spectrum in scientific publications. Source: @peng2011reproducible.](img/spectrum-replica.png){#fig-espectro-replica width=95%}
+![Replication levels spectrum in scientific publications. Source: @peng2011reproducible.](img/spectrum-replica.png){#fig-spectrum-replica width=95%}
 
 ### Replicability tools
 
