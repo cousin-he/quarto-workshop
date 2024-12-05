@@ -131,11 +131,11 @@ with the same data that were used in the original analysis, and knowing the deta
 sequence (*workflow* or *pipeline*) of operations that make up said analysis.
 Certain premises must be able to be guaranteed:
 
-- If we use the same tools (e.g. R, a certain list of packages, the same versions of all
+    - If we use the same tools (e.g. R, a certain list of packages, the same versions of all
 packages and dependencies), as well as the same code (*R scripts*) on the same data, the results
 and conclusions must be consistent with those of the original analysis.
 
-- The authors of the original analysis must provide all the elements (data, code and procedure
+    - The authors of the original analysis must provide all the elements (data, code and procedure
 used) to allow the analysis to be reproducible [@barba2018terminologies].
 
 - **Replicability**: It is defined as the ability to perform an experiment or analysis independent of
