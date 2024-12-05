@@ -1,42 +1,260 @@
-# Scientific documents
+# Scientific documents 
 
-In a typical research scenario, scholars and practitioners 
-producing scientific documents must face a complex task, full
-of nuances and potentially problematic steps.
+In their daily work, students, academics and scientific specialists 
+produce a large amount of documentation of all kinds:
+laboratory notes, lectures, memos, technical reports and,
+above all, scientific articles to publish their discoveries
+and advances in an area of ​​knowledge. Normally, the creation of
+this type of scientific documents involves a large number of
+tasks involving different tools and possible points of
+failure.
 
-Figure X.X depicts an schematic overview of a classical
-workflow for scientific document creation. Usually, the central asset
-is a LaTeX or Word master file containing the document (manuscript,
-technical report, thesis, etc.). 
+@fig-proc-sci-docs shows a schematic overview of a classic workflow 
+for creating scientific documents. The main element is often a word 
+processor master file (Word, OpenOffice/LibreOffice, etc.), a web page, 
+or a LaTeX file (if we are creating a PDF document) that holds 
+all contents.
 
-FIXME: INSERT FIGURE HERE
+![Creation process for cientific articles and documentation.](img/process-scientific-docs-en.png){#fig-proc-sci-docs width=90%}
+
+This master file is filled with content from
+a variety of sources, such as:
+
+- figures and diagrams generated manually or through software code
+(such as data visualization charts);
+- tables and summaries describing data sets and results;
+- results and evaluation of the performance of models or algorithms;
+statistical or machine learning;
+- mathematical formulas and equations;
+- data tables and other useful information;
+- bibliographic references (usually generated with the help of some
+bibliographic information management program).
+
+Many of these elements force users to run external tools and programs, procedures, and other tasks
+over and over again to then incorporate the new results into the master file. We must admit
+that this process, which is mostly manual, is not only tedious but also
+very prone to errors or oversights. "Wait! I forgot to
+update Figure 1." "Are you sure these are the latest evaluation results
+for model *M*?" "Have you checked that we have uploaded the latest
+version of the data file *D*?" These are common questions that arise
+in the day-to-day work of scientific teams.
+
+However, it would be great if it were not necessary to carry out all 
+this manual and sometimes very frustrating process manually. Do we have any
+alternative to avoid it? Yes, we do. The answer to our
+needs is provided by a very powerful concept: **literate programming**.
 
 
-This master file is progressively
-populated with content from different sources, like:
+## Literate programming
 
-- Figures and charts resulted from running software code.
-- Tables and summaries describing datasets and results.
-- Evaluation and results from statistical and/or machine learning models.
-- Bibliographic references.
+The concept of literary programming was coined by Professor Donald E. @knuth84.
+Yes, you read that right, more than 40 years ago. This concept
+states that it should be possible to integrate, in a single scientific document,
+formatted text and results of the execution of software code to compose
+said document dynamically. So, why has it taken us so long to put this idea
+into practice? Knuth's vision, although very ahead of its time, was
+correct, but the technology of the time did not allow it to be put into practice.
 
-Many of these elements force users to constantly rerun external programs,
-procedures and tools to update these elements and incorporate the new
-versions to the master file. Admittedly, this is a mostly manual, tediuos
-process which is also quite prone to errors and overlooks. "Wait! We forgot
-to update Figure A". "Are these the latest evaluation results from model M?"
-"Do we use the last version of dataset D?" These are common inquiries that
-recurrently surface during this process.
-
-However, it would be great if that manual and at times frustrating process
-were not necessary. Do we have any alternative? Yes, we do. The answer to
-our problems is a powerful concept called **literate programming**.
-
-Literate programming
+However, today we have all the essential elements to make it real. 
+What's more, we have a tool, Quarto, that lets us
+automate and manage the whole process of creating literary programming
+documents quickly and reliably.
 
 
-Reproducible research
+## Reproducible research
+
+For many decades, the scientific method has been based on the publication of
+research papers describing the results of data analysis and experiments.
+In all cases, it is essential to be able to trust the conditions, the data
+collected, the method of analysis and execution of the experiments, as well as the
+various kinds of tools, including software, that the authors of the publication
+used to carry it out.
+
+However, the numerous advances in recent years in the tools and methods of analysis
+make it much easier to check the results of these analyses. We might assume that this 
+makes the work of scientists much easier, but in reality the opposite is true. 
+Let us look at some examples:
+
+- **Oncology** [@begley2012drug]: The Biotechnology Department of the firm Amgen (Thousand Oaks, CA, USA)
+was able to confirm only 6 of a total of 53 emblematic research articles published
+in this area. Bayer HealthCare (Germany) was able to validate only 25%
+of the studies analyzed.
+
+- **Psychology** [@wicherts2006poor]: 73% of the authors of a total of 249 articles published by
+the APA did not respond within a period of 6 months to the questions and requests formulated
+about the data they used in their research.
+
+- **Economics and Finance** [@burman2010call]: A comparison of different software packages applied in
+the execution of various financial and statistical model analyses shows that each of these
+packages produces *very different* results using *the same statistical techniques* directly
+applied to *identical data* as those used in the original publication.
+
+In fact, articles have even appeared suggesting that many of the results published
+in areas such as Medicine may not be entirely reliable [@ioannidis2005most]. As a result
+of all these recent findings, a great controversy has been generated throughout the scientific and research
+community, accompanied by a deep
+[crisis of confidence](https://www.theatlantic.com/magazine/archive/2010/11/lies-damned-lies-and-medical-science/308269/).
+
+Nevertheless, as a well-known comic strip about the academic world and research
+(see @fig-phd-comic-revs) very well describes, the process of developing scientific publications is based primarily
+on the continuous review of methods and results (starting with the students themselves and their supervisors).
+
+![Comic strip representing the review model for scientific publications. Source: [PhD comics](http://phdcomics.com/comics/archive.php?comicid=1531).](img/phd101212s.png){#fig-phd-comic-revs width=90%}
+
+The @fig-evol-research-fraud shows a graph published in the prestigious journal Science Magazine [@brainard2018massive],
+which represents the data on the evolution of the number of research articles retracted or withdrawn for
+various reasons, between 1997 and 2014. In this graph, we can see how the improvement of tools
+and the greater availability of resources allow for the analysis and review of a greater volume of publications and analyses,
+which allows for the detection of a greater number of problematic cases.
+
+![Evolution of the number of scientific publications retracted or withdrawn for various reasons, between 1997 and 2014. Source: [Science Magazine](https://www.sciencemag.org/news/2018/10/about-these-data) [@brainard2018massive].](img/research-fraud.png){#fig-evol-research-fraud width=90%}
+
+### Reproducibility and replicability
+
+There is often talk of *reproducing* and *replicating* a data analysis or a scientific experiment
+[@leek2015reproducible]. However, many evidences can found showing that
+there are incompatible definitions of these two and other related terms
+[@barba2018terminologies]. Be very careful, therefore, because depending on the scientific community
+or the field of knowledge in which we find ourselves, the meaning of these two terms
+may even be *entirely opposite* to their accepted definition in other areas [^1]. Here we will
+stick to the definition accepted in a large number of areas, including statistics or
+scientific computing [see @barba2018terminologies, p.33]:
+
+[^1]: Among the most important examples of definitions that contradict
+those we give in this workshop are those adopted by the Federation of
+American Societies for Experimental Biology (FASEB), in immunology
+and microbiology, as well as those adopted by the Association for Computer
+Machinery (ACM) in computer science.
+
+- **Reproducibility**: It is defined as the ability to recompute the results of an analysis,
+with the same data that were used in the original analysis, and knowing the details of the
+sequence (*workflow* or *pipeline*) of operations that make up said analysis.
+Certain premises must be able to be guaranteed:
+
+- If we use the same tools (e.g. R, a certain list of packages, the same versions of all
+packages and dependencies), as well as the same code (*R scripts*) on the same data, the results
+and conclusions must be consistent with those of the original analysis.
+
+- The authors of the original analysis must provide all the elements (data, code and procedure
+used) to allow the analysis to be reproducible [@barba2018terminologies].
+
+- **Replicability**: It is defined as the ability to perform an experiment or analysis independent of
+the original, that addresses the same objective but on a set of data different from that used in the
+initial study. If the results are not consistent, it will be necessary to carry out more replications and
+harmonize the results and conclusions through appropriate techniques, such as **meta-analysis**.
+
+### Replication levels
+
+Depending on the elements published by the authors of the original study, as well as the level of detail
+with which the process for carrying out the study is described, the steps that have been followed and the tools
+used, we have different levels of replicability or reproducibility, represented in the @fig-spectrum-replica.
+
+- *Not reproducible*: No data, code or any specific description of the implementation of the
+study or analysis is provided. Many scientific publications no longer accept publishing articles under these conditions.
+
+- *Code* or *Data*: A good number of publishers request that the data sets used in the analysis or
+study of the publication be accessible through a URL, either because they are available in a public repository or
+because the authors of the article have published it. Likewise, many publications require that the software code
+to carry out the analysis is also publicly accessible, in an open source repository or
+in a freely accessible version control service project.
+
+- *Code and data*: Ideally, both the code and the data should be publicly accessible for anyone who
+wants to examine them or use them to reproduce the results (validation) or replicate the analysis with other data
+or other cases.
+
+- *Runtime environment and linked data*: A further step to facilitate the reproducibility of studies consists of
+publishing code and metadata files with more precise information about the programming language, the software packages
+used and any other dependencies necessary to carry out the same study or analysis. Another variant to facilitate
+reproducibility is to encapsulate the code and dependencies in a preconfigured virtual container, which can be
+downloaded and executed directly.
+
+- *Gold standard*: The most advanced level would consist of documenting all the procedures performed during the study or
+analysis, including the coding of the tasks of obtaining, cleaning and preparing the data, as well as the generation
+of graphics to visualize the results or any other results derived from the study.
+
+![Replication levels spectrum in scientific publications. Source: @peng2011reproducible.](img/spectrum-replica.png){#fig-espectro-replica width=95%}
+
+### Replicability tools
+
+Certain technologies and tools that have become more sophisticated and refined in recent years are making it easier to
+replicate data processing and analysis.
+
+- Version Control Systems for software code (SCV): tools such as Git, Mercurial and web services such as GitHub
+or GitLab have popularized the creation and publication of projects that allow the management of the software code that has been created,
+controlling the changes and the released versions. Web services also integrate a good number of tools to
+support different facets of the software development process, such as the generation of documentation, manuals and examples,
+error reports and requests for improvements, continuous integration and continuous deployment (CI/CD), systematic testing of the generated code,
+etc. If you have not yet considered how using a source code version control tool can benefit you,
+take a look at @fig-cvs where you will relive a situation that is unfortunately very common among researchers and scientists
+who develop software solutions.
+
+![Software version control. Source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1323)](img/phd052810s.png){#fig-cvs width=90%}
+
+- Software virtualization and containers: In a technological environment dominated by the contracting and deployment of computing infrastructure and services in cloud computing architectures, packaging and virtualization tools for software applications and services that can be installed and deployed in a short time have revolutionized the way software products are published and managed, including data processing and analysis products.
+
+- Data version control: In a similar way to SCV for source code, software is appearing to
+apply the same principles to data files. In this way, we can control different versions of each data file, modifications made to them, etc. One of these tools is
+[Data Version Control](https://dvc.org/) (DVC), which allows [versioning of data and models](https://dvc.org/doc/use-cases/versioning-data-and-models).
+As a result, we can know at all times which version of the data and which list of *features* have been included
+in each model considered during the analysis, keeping the descriptive information about these three
+essential components that must always be cohesive.
+
+![Data, code and model versioning example maintained by DVC.
+Source: [DVC Documentation](https://dvc.org/doc/use-cases/versioning-data-and-models).](img/project-versions.png){#fig-project-versions width=90%}
+
+- Model and experiment management: Another type of machine learning project management tool is one that allows the organization, monitoring, comparison, and selection of the experiments and models we have carried out.
+One of the most recent notable examples is [ML Flow](https://mlflow.org/docs/latest/index.html), which provides
+support for model tuning, evaluation, and optimization, deployment of models in production environments, creation
+of a registry of pre-trained models, etc. Of course, it is possible to combine this type of tool with others
+such as DVC, creating a comprehensive management environment for our projects.
+
+- Creation and management of data processing pipelines: the last essential element in any
+data processing and analysis project that must take care of scalability is a tool for creation
+and management of data processing and analysis flows or pipelines. The set of all the pipelines
+in our project make up the general workflow of the project. These tools are known as data or workflow orchestrators. In this category, we have both very powerful and feature-packed tools such as [Apache Airflow](https://airflow.apache.org/) or [Prefect](https://www.prefect.io/)
+and simpler and more straightforward ones such as [Luigi](https://luigi.readthedocs.io/en/stable/).
+
+Of course, the R community has not remained oblivious to these new trends, in particular the
+[R OpenSci](https://ropensci.org/) initiative, within which we find many [packages](https://ropensci.org/packages/)
+(published in the official CRAN repository) that cover various aspects of scientific work, including
+the management of *pipelines* and *workflows* through the [`targets`](https://docs.ropensci.org/targets/) package.
+
+- [User manual for the R package `targets`](https://books.ropensci.org/targets/).
 
 
+## Quarto for scientific publications
 
-Quarto for scientific publishing
+Now that we know the fundamental concept on which Quarto works
+and its application to achieve a higher level of reproducibility and transparency in our
+scientific process, we are going to explain in more detail the process that Quarto follows to
+compose a document. The @fig-how-it-works presents a diagram with the document creation
+process and the elements and tools that come into play to achieve it.
+
+![Content creation process with Quarto.](img/quarto-process-overview.png){#fig-how-it-works}
+
+- **Quarto**: a software that allows you to create scientific documentation following the principles
+of literary programming.
+- **Knitr and programming language**: the `knitr` package is responsible for the connection with an interpreter of a programming language (R, Python, Julia) that can be executed in a
+[REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) environment, in order to be able to execute
+software code fragments integrated into the document and generate content in Markdown format as a result.
+- **Markdown** (formatted content): a textual content markup language that allows easy formatting of the information in our documents created with Quarto.
+- **Pandoc** (universal translator of document formats): this software receives the content already
+formatted using the Markdown standard, to convert it into the selected output type. There are
+several options available: HTML, PDF or Word, as well as slides, websites or interactive panels
+(*dashboards*).
+
+## Quartion installation {#sec-quarto-install}
+
+To install the latest version of Quarto software on your system, point your web browser to the 
+page <https://quarto.org/docs/get-started/>. Here, download and install the file corresponding to 
+your operating system.
+
+At this time, the latest version of Quarto available is `1.5.57`.
+
+::: {.callout-note}
+### Software requirements to generate PDF documents
+
+By default, the output format of documents generated with Quarto is HTML. If we want 
+to generate PDF documents, we need to have a LaTeX distribution installed. For more 
+information, see @sec-pdf-reqs.
+:::
