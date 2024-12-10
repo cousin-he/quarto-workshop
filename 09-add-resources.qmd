@@ -1,5 +1,34 @@
 # Additional resources
 
-In summary, this book has no content whatsoever.
+## Quarto
 
-See @knuth84 for additional discussion of literate programming.
+- Getting started: <https://quarto.org/docs/get-started/>.
+
+- Complete guide (online): <https://quarto.org/docs/guide/>.
+
+- Reference of functions and options (online): <https://quarto.org/docs/reference/>.
+
+- Gallery of example projects: <https://quarto.org/docs/gallery/>.
+
+## FAIR principles and open science
+
+- Article on FAIR principles: <https://www.nature.com/articles/sdata201618>.
+
+- Mandate on scientific data management in the Horizon Europe (EC) Programme: 
+<https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm>.
+
+
+   - All HE projects must publish at the beginning of the work plan a 
+   Data Management Plan (DMP), explaining in great detail how they will be obtained, processed,
+   analyze and manage the data used and generated in the project activities.
+
+        - [DMP TOOL](https://dmptool.org/): Online tool to create DMPs following a structured procedure.
+
+    - *"How to make your data FAIR"*: <https://www.openaire.eu/how-to-make-your-data-fair>.
+
+    - [Data Management Plan](https://www.data.cam.ac.uk/data-management-guide/creating-your-data/data-management-plan)
+    (University) of Cambridge.
+
+- ROpenSci Community: <https://ropensci.org/es/>.
+
+- ROpenSpain Community: <https://ropenspain.es/>.

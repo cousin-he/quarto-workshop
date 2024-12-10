@@ -1,17 +1,208 @@
-# Scientific articles
+# Scientific publications {#sec-scientific-articles}
 
 
-## Replicability in scientific publications
+In this chapter we see another important characteristic of Quarto, such as
+the ability to create document formats by extending the formats
+basic output file like `html`, `pdf` or `docx`. One of the uses
+main aspects of this capacity of Quarto is to produce
+documents that meet the requirements requested by the publishers
+scientific for publication of research articles in journals
+that they edit.
+
+It is worth noting that Quarto, as a minimum, always
+attempts to produce output in HTML and PDF formats, so templates should
+contemplate these two scenarios. Additionally, the use of *span* and *div* environments in different sections lets us apply the requested design and style tools
+for each editorial template for both HTML (with CSS) and PDF (with environments
+and LaTeX macros). Another interesting aspect is that these templates aim to unify the coding of information about authors and their affiliations,
+so that it is written only once and it can be reused in different output 
+formats. Finally, Quarto can also manage styling requirements
+of bibliographic citations imposed by scientific publishers and magazines in 
+their publications.
+
+- [List of editorial formats supported in Quarto](https://quarto.org/docs/journals/).
+- [Alternative list of editorial formats supported in Quarto](https://github.com/quarto-journals).
+
+Sometimes it will be necessary to add additional code to make fine adjustments to the
+document templates, so that we can adhere to the requirements imposed
+by the publisher for that publication. The following tutorial offers information on
+the different points at which we can insert additional code to perform these
+fine adjustments.
+
+- [Templates adjustment](https://quarto.org/docs/journals/templates.html).
+
+Finally, in case there is no template for the format we need, it is always
+possible to create our own article format.
+
+- [Creating our own article template](https://quarto.org/docs/journals/formats.html).
 
 
+The initial step is to create a new project directory and run within it
+the command to download the standard template (not customized yet) for creating post formats
+scientists in Quarto. Suppose the project directory is called `jourA`. 
+Be careful, because in this example the symbol `$` should not be entered in the
+terminal; we are just using it to differentiate the user input from the response it returns
+the terminal when executing the command.
 
-## Publication-ready figures
+``` {.bash filename="Terminal"}
+$ cd jourA
+$ quarto create extension journal
+ ? Extension Name › jourA
+
+ Creating extension at /home/jfelipe/quarto/dev/jourA:
+  - Created README.md
+  - Created template.qmd
+  - Created _extensions/jourA/jourA.lua
+  - Created _extensions/jourA/styles.css
+  - Created _extensions/jourA/_extension.yml
+  - Created _extensions/jourA/header.tex
+  - Created bibliography.bib
+```
+
+Several files are created, including:
+
+- `_extensions/jourA/_extension.yml`, which defines the output formats available in this
+article template. For example, if we define an output format `html` and another `pdf` in
+this template, these will be available in the Quarto document as `jourA-html` and 
+`jourA-pdf` when a Quarto document uses our template.
+
+- `template.pdf`, which is the example document that is generated to demonstrate to the user the
+structure and options available and start working on it.
+
+::: {.callout-info}
+## The `keep-tex` option: true
+
+If you review the examples offered in the publication template creation guide, you will see
+as in the output format options of the `template.qmd` file, within the PDF output
+the `keep-tex: true` option is usually included. This option forces the file not to be deleted
+LaTeX (with `.tex` extension) that is created as a previous step to compile the final document in
+PDF. The reason is to allow the user to modify the file if necessary.
+LaTeX directly and compile it manually.
+
+However, remember that if you press the *Render* button again for the PDF format
+in RStudio, or run `quarto render --to pdf` on the command line, said file
+with `.tex` extension **it is overwritten** and we would lose the changes we have made. Consequently,
+it is better to copy it to another location before making manual adjustments or create a new one
+branch (if we use version control) to adjust the file in it without the risk
+to overwrite the changes made.
+:::
+
+## Figures and graphs for publication
+
+An important advantage of using Quarto to create our articles is being able to
+integrate the results of the execution of our code (graphs, tables, results
+of evaluation of models and algorithms, etc.) directly in our scientific documents.
+This greatly mitigates the drawbacks already mentioned at the beginning of the workshop to
+keep all elements updated, allowing us to ensure that we are
+using the correct version of the code on the appropriate data.
+
+- [Publication Perfect](https://github.com/hbctraining/publication_perfect?tab=readme-ov-file): a tutorial
+with open online materials on how to improve the elements of our publications
+and articles, created by the Harvard Chan Bioinformatics Core group.
+
+Let's remember some of the packages in R that allow us to create graphs and tables now
+prepared for publication:
+
+- [`Hmisc`](https://hbiostat.org/r/hmisc/): includes many functions for description of
+data and creation of graphs and tables summarizing data and models, ready to publish.
+
+- [Examples reproducible with `Hmisc`](https://hbiostat.org/r/hmisc/examples). It is indicated
+that the examples are for R Markdown, but they actually work also for Quarto (since
+that the same `knitr` engine is used by default to process and execute the blocks
+of code.)
 
 
-## Journal article templates
+- [`summarytools`](https://github.com/dcomtois/summarytools): offers many features
+and tools to present summaries of data tables and data frames, both in
+table as in graphs for EDA.
+
+- [Examples of use of `summarytools`](https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html).
 
 
-## Examples and best practices
+- [`ggpubr`](https://rpkgs.datanovia.com/ggpubr/): package to help customize
+graphics created with `ggplot2`, so that they are ready for inclusion in publications
+scientific.
+
+- [Collection of tutorials and examples for creating graphs with `ggpubr`](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/).
+
+- [List and examples of packages to create tables in publications](https://thatdatatho.com/easily-create-descriptive-summary-statistic-tables-r-studio/).
+
+
+## Facilitate citation of articles
+
+In a context of the academic and research world in which the volume of works and
+published articles has grown exponentially in digital media, it is very
+It is important to facilitate the work of other researchers as much as possible when they want to
+cite our publications. On the other hand, there are many reference services
+of citations and databases that help researchers find materials
+that they should review.
+
+We can include metadata in our document to facilitate full automation
+or partial of this process of indexing publications and citations of our work.
+
+
+The following tutorial shows several examples of metadata fields to facilitate
+the citations that we can include in the header of the document, including information about
+the journal or publication that contains the article (such as the DOI), as well as specific formats
+compatible with scientific bibliography indexing engines such as Google Scholar.
+
+- [Guide for creating citable articles in Quarto](https://quarto.org/docs/authoring/create-citeable-articles.html).
+
+By default, when we include this information in the header of the Quarto document it must
+create an appendix with the citation information in plain text and in BibTeX.
+
+## Example of using scientific article templates
+
+### Elsevier Magazine Template
+
+::: {.callout-warning}
+## Prerequisite: have LaTeX installed
+
+This section shows how to generate a *draft* of an article to send to a
+scientific journal from the Elsevier publishing house. For this process to work, remember
+You must previously have a LaTeX distribution installed on your computer (such as
+TeX Live) or install the minimal TinyTeX distribution in RStudio.
+:::
+
+In this case, the steps to follow are quite simple:
+
+1. We create a new directory to save our project, for example, a folder
+with the name `example-elsevier`.
+2. In the terminal (for example in RStudio, tab in the bottom left panel), 
+We enter the newly created folder and execute a command to download the template
+and start using it:
+
+``` {.bash filename="Terminal"}
+cd example-elsevier
+quarto use template quarto-journals/elsevier
+```
+
+3. We create a new project in RStudio on the already existing directory in which we have
+downloaded the template files.
+4. We open the file `example-elsevier.qmd` and press the *Render* button to generate the
+the output in PDF.
+
+If we had previously created our project with a generic Quarto document, it will not
+we have to start from scratch. Just open a terminal inside the project directory
+and execute:
+
+``` {.bash filename="Terminal"}
+quarto add quarto-journals/elsevier
+```
+Finally, if we want to generate the *draft* article in PDF format from the command line,
+we execute:
+
+``` {.bash filename="Terminal"}
+quarto render article.qmd --to elsevier-pdf
+```
+
+Take a good look at the output format option specified in the `.qmd` file to
+generate the *draft* article:
+
+```{.yaml filename="example-elsevier.qmd"}
+format:
+  elsevier-pdf:
+    keep-tex: true
+```
 
 
 

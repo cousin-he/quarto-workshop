@@ -1,16 +1,147 @@
-# FAIR data principles
+# FAIR Principles
 
 ## Overview
 
+For years, a movement has developed within the scientific community
+unstoppable to promote access to all information related to jobs,
+experiments and scientific publications, so that their validation is facilitated
+and reproduction/replication by other interested researchers or experts.
+
+This movement has especially concentrated, in its initial phase, on guaranteeing at least
+access to the raw materials necessary to develop many of these projects: the
+data. The fundamental principles that must be met so that data can be
+indexed and reused as much as possible, they are called **FAIR Principles** and are included,
+among other sources, in the [European Commission guidance documents](https://horizoneuropencpportal.eu/sites/default/files/2022-09/ore-fair-data-guide.pdf) 
+for researchers participating in projects funded by said organization.
+These FAIR principles were initially established by
+@wilkinson2016fair and they are:
+
+- **Findable**: Data and metadata (data that describes the data, such as its format, content, meaning, link with other data, etc.) must receive a globally unique and persistent identifier that allows it to be located directly. The most used standard today is the [DOI system](https://www.doi.org/) (ISO 26324). The metadata must include
+clearly and explicitly identify the data they describe, and both data and metadata must be registered or indexed in sources that allow their search and retrieval.
+
+- **Accessible**: Data and metadata must be obtainable through a standard and open communication protocol. Metadata must continue to remain accessible even when the data is no longer available.
+
+- **Interoperable**: Data and metadata must use standard and open knowledge representation formats, vocabularies that follow FAIR principles and must include references to other data and metadata with which they are related.
+
+- **Reusable**: The data and metadata are described in a rich and precise manner, with multiple relevant attributes that facilitate their use by other users.
+
+It is important to emphasize the importance of publishing openly and following good
+reviewable and reproducible/replicable research practices. For example, 
+The National Commission for the Evaluation of Research Activity (CNEAI) has published
+in 2023-2024 new criteria for evaluation of publications valid for
+be able to be evaluated in the granting of a six-year period of research. Likewise, in all
+the recent calls financed by the different ministries of the Government of Spain
+It is required that research results, especially all publications, *datasets*,
+software and procedures are publicly accessible and comply with FAIR principles.
+
+However, there is still some way to go. A recent study [@Kumar2024] analyzed
+the degree of compliance with the FAIR principles (the so-called FAIRness) of the results
+research published by recently funded multi-stakeholder projects within the
+European H2020 framework program and related to the agri-food sector. As
+main conclusions, less than 10% of the projects analyzed managed to comply with the
+FAIR principles, although these principles were fulfilled to a greater extent in the articles of
+research published in journals and conferences, as well as in books.
+
+In general, another conclusion is that the European agri-food and rural sector is becoming
+increasingly dependent on data and that the application of the principles
+FAIR contributes to improving decision-making and better exploiting innovation results
+derived from these projects. However, it is also noted that the research community
+for the development of the agri-food and rural sector still has limited experience
+in the application of these principles.
+
+## Publication of source code and technical documentation
+
+- Platforms like GitHub and GitLab make project management and publishing much easier
+software within research initiatives and projects, as well as publication and maintenance
+of digital technical documentation centers on tools, procedures and good practices
+related to the activity of said initiatives.
 
 
-## Source code publication
+- Examples of the [SoilWise project](https://soilwise-he.eu/), funded within the HE program of the
+European Community.
+
+  - [SoilWise digital co-creation space on GitHub](https://github.com/soilwise-he). It has been achieved
+  creating an organization (free of charge), so that repositories can be created on this platform, grouped
+  under the umbrella of the project, for different purposes: lists of software of interest, technical documentation,
+  user manuals, architecture of the proposed platform, etc.
+
+  - [Documentation Center](https://soilwise-documentation.pages.dev/). Here we use the 
+  [MkDocs](https://www.mkdocs.org/) solution, which works
+  with the Python language (Quarto has great advantages in this aspect).
+
+  - [Repository with data collection tools](https://github.com/soilwise-he/harvesters), 
+  documented in the 
+  [page describing the data collection process](https://soilwise-he.github.io/SoilWise-documentation/technical_components/ingestion/)
+  in the project infrastructure.
+
+- Open repositories of data and research material such as [Zenodo](https://about.zenodo.org/)
+and [Figshare](http://figshare.com/) can help publicize and cite research material. For example,
+Zendo can [issue a persistent identifier (DOI) for a software repository on GitHub](https://docs.github.com/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing -a-persistent-identifier-for-your-repository-with-zenodo)
+pointing to a particular version of the software that has been released and tagged from that project
+on GitHub. This allows it to be included in a scientific publication to know with certainty what exact version of the code was
+software has been used to perform the work reported in that publication.
+
+As an example, [@fig-PyMPDATA-Zenodo] shows the [Zenodo page](https://zenodo.org/records/13988934) 
+corresponding to the PyMPDATA software, which points to the original software repository 
+[hosted on GitHub](https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file), shown
+in turn in the [@fig-PyMPDATA-GitHub]. we can see
+metadata cross-references that maintain connection consistency in both directions.
+
+![PyMPDATA project page (v1.2.0) at [Zenodo](https://zenodo.org/records/13988934)](img/PyMPDATA-Zenodo.png){#fig-PyMPDATA-Zenodo width=95%}
+
+![PyMPDATA (v1.2.0) project page on [GitHub](https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file)](img/PyMPDATA-GitHub.png){#fig-PyMPDATA-GitHub width=95%}
+
+- The project page in Zenodo points to a specific version of the GitHub repository, and maintains a list of all
+the previously referenced versions of the same project. Each new version receives a different DOI,
+to differentiate them univocally.
+
+- The repository description page on GitHub displays, among other tags, the DOI for that version
+in particular, the DOI to the scientific article published in JOSS explaining this software, as well as other
+labels for attribution of project financing sources.
 
 
 ## Dataset publication
 
 
-## Reference management
+- [Zenodo](https://about.zenodo.org/) is, probably along with [Figshare](http://figshare.com/), one of
+the most well-known and widely used open data repositories in research, especially in Europe,
+being a project integrated into [OpenAIRE](https://www.openaire.eu/), a non-profit organization
+created by the European Union to promote open science.
+
+- Scientific publications in open access (*open access*).
+
+- Important to link the DOI of a dataset in an article, so that they can be traced
+(in reverse) the DOIs of the publications that use said *dataset*.
+
+## Reference management and open publication
+
+In addition to the assignment of a DOI to articles, data sets, software and other elements
+of research work, there are some additional tools that facilitate the
+identification of the works and the attribution of their authorship (many of them with support
+explicit in Quarto)
+
+- The [ORCID](https://orcid.org/) is a free, unique and persistent identifier for individuals
+who engage in research, innovation and academic activities. Allows you to identify
+quickly the identity of an author in a publication or scientific work or the person in charge
+to publish and maintain a resource (*dataset*, software repository, etc.). Furthermore, the ORCID
+allows you to generate a list of all the contributions made by the identified individual.
+
+- There is an extensive [list of *preprints* files](https://en.wikipedia.org/wiki/List_of_preprint_repositories)
+that allow the publication of preliminary works that have not yet gone through a review process by
+pairs for publication in a magazine. More and more publishers accept (and even encourage) publication
+of these documents to quickly record research progress, due to the high
+times required by the review and publication process in many prestigious journals.
+
+- [PLOS](https://plos.org/) is a non-profit Open Access publisher, which edits and publishes several
+high-impact, wide-spread digital magazines in many areas including, 
+[transformation and sustainability](https://journals.plos.org/sustainabilitytransformation/).
+
+A growing number of publishers are also adopting open publishing principles (Open Access),
+although usually impacting a significant cost on the authors or the institutions to which they are
+affiliates to cover publication costs.
+
+- [Guide to creating citable articles with Quarto](https://quarto.org/docs/authoring/create-citeable-articles.html).
+
 
 
 
