@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -155,7 +135,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-doctypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Document types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Types of documents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,13 +187,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-FAIR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR data principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR Principles</span></span></a>
   </div>
 </li>
       </ul>
@@ -276,8 +256,15 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto"><span class="header-section-number">9.1</span> Quarto</a></li>
+  <li><a href="#fair-principles-and-open-science" id="toc-fair-principles-and-open-science" class="nav-link" data-scroll-target="#fair-principles-and-open-science"><span class="header-section-number">9.2</span> FAIR principles and open science</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -301,15 +288,34 @@ div.csl-indent {
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<section id="quarto" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="quarto"><span class="header-section-number">9.1</span> Quarto</h2>
+<ul>
+<li><p>Getting started: <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>.</p></li>
+<li><p>Complete guide (online): <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a>.</p></li>
+<li><p>Reference of functions and options (online): <a href="https://quarto.org/docs/reference/" class="uri">https://quarto.org/docs/reference/</a>.</p></li>
+<li><p>Gallery of example projects: <a href="https://quarto.org/docs/gallery/" class="uri">https://quarto.org/docs/gallery/</a>.</p></li>
+</ul>
+</section>
+<section id="fair-principles-and-open-science" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="fair-principles-and-open-science"><span class="header-section-number">9.2</span> FAIR principles and open science</h2>
+<ul>
+<li><p>Article on FAIR principles: <a href="https://www.nature.com/articles/sdata201618" class="uri">https://www.nature.com/articles/sdata201618</a>.</p></li>
+<li><p>Mandate on scientific data management in the Horizon Europe (EC) Programme: <a href="https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm" class="uri">https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm</a>.</p>
+<ul>
+<li><p>All HE projects must publish at the beginning of the work plan a Data Management Plan (DMP), explaining in great detail how they will be obtained, processed, analyze and manage the data used and generated in the project activities.</p>
+<ul>
+<li><a href="https://dmptool.org/">DMP TOOL</a>: Online tool to create DMPs following a structured procedure.</li>
+</ul></li>
+<li><p><em>“How to make your data FAIR”</em>: <a href="https://www.openaire.eu/how-to-make-your-data-fair" class="uri">https://www.openaire.eu/how-to-make-your-data-fair</a>.</p></li>
+<li><p><a href="https://www.data.cam.ac.uk/data-management-guide/creating-your-data/data-management-plan">Data Management Plan</a> (University) of Cambridge.</p></li>
+</ul></li>
+<li><p>ROpenSci Community: <a href="https://ropensci.org/es/" class="uri">https://ropensci.org/es/</a>.</p></li>
+<li><p>ROpenSpain Community: <a href="https://ropenspain.es/" class="uri">https://ropenspain.es/</a>.</p></li>
+</ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, D. E. (1984). Literate programming. <em>Comput. J.</em>, <em>27</em>(2), 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -734,8 +740,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08-FAIR.html" class="pagination-link" aria-label="FAIR data principles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR data principles</span></span>
+      <a href="./08-FAIR.html" class="pagination-link" aria-label="FAIR Principles">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR Principles</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -749,4 +755,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

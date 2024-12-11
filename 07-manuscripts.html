@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Scientific articles – Scientific documents with Quarto</title>
+<title>7&nbsp; Scientific publications – Scientific documents with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publications</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publications</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -135,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-doctypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Document types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Types of documents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,13 +221,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-FAIR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR data principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR Principles</span></span></a>
   </div>
 </li>
       </ul>
@@ -261,19 +295,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#replicability-in-scientific-publications" id="toc-replicability-in-scientific-publications" class="nav-link active" data-scroll-target="#replicability-in-scientific-publications"><span class="header-section-number">7.1</span> Replicability in scientific publications</a></li>
-  <li><a href="#publication-ready-figures" id="toc-publication-ready-figures" class="nav-link" data-scroll-target="#publication-ready-figures"><span class="header-section-number">7.2</span> Publication-ready figures</a></li>
-  <li><a href="#journal-article-templates" id="toc-journal-article-templates" class="nav-link" data-scroll-target="#journal-article-templates"><span class="header-section-number">7.3</span> Journal article templates</a></li>
-  <li><a href="#examples-and-best-practices" id="toc-examples-and-best-practices" class="nav-link" data-scroll-target="#examples-and-best-practices"><span class="header-section-number">7.4</span> Examples and best practices</a></li>
+  <li><a href="#the-keep-tex-option-true" id="toc-the-keep-tex-option-true" class="nav-link active" data-scroll-target="#the-keep-tex-option-true"><span class="header-section-number">7.1</span> The <code>keep-tex</code> option: true</a></li>
+  <li><a href="#figures-and-graphs-for-publication" id="toc-figures-and-graphs-for-publication" class="nav-link" data-scroll-target="#figures-and-graphs-for-publication"><span class="header-section-number">7.2</span> Figures and graphs for publication</a></li>
+  <li><a href="#facilitate-citation-of-articles" id="toc-facilitate-citation-of-articles" class="nav-link" data-scroll-target="#facilitate-citation-of-articles"><span class="header-section-number">7.3</span> Facilitate citation of articles</a></li>
+  <li><a href="#example-of-using-scientific-article-templates" id="toc-example-of-using-scientific-article-templates" class="nav-link" data-scroll-target="#example-of-using-scientific-article-templates"><span class="header-section-number">7.4</span> Example of using scientific article templates</a>
+  <ul class="collapse">
+  <li><a href="#elsevier-magazine-template" id="toc-elsevier-magazine-template" class="nav-link" data-scroll-target="#elsevier-magazine-template"><span class="header-section-number">7.4.1</span> Elsevier Magazine Template</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/07-manuscripts.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/07-manuscripts.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publications</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publications</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></h1>
+<h1 class="title"><span id="sec-scientific-articles" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></span></h1>
 </div>
 
 
@@ -290,19 +327,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="replicability-in-scientific-publications" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="replicability-in-scientific-publications"><span class="header-section-number">7.1</span> Replicability in scientific publications</h2>
+<p>In this chapter we see another important characteristic of Quarto, such as the ability to create document formats by extending the formats basic output file like <code>html</code>, <code>pdf</code> or <code>docx</code>. One of the uses main aspects of this capacity of Quarto is to produce documents that meet the requirements requested by the publishers scientific for publication of research articles in journals that they edit.</p>
+<p>It is worth noting that Quarto, as a minimum, always attempts to produce output in HTML and PDF formats, so templates should contemplate these two scenarios. Additionally, the use of <em>span</em> and <em>div</em> environments in different sections lets us apply the requested design and style tools for each editorial template for both HTML (with CSS) and PDF (with environments and LaTeX macros). Another interesting aspect is that these templates aim to unify the coding of information about authors and their affiliations, so that it is written only once and it can be reused in different output formats. Finally, Quarto can also manage styling requirements of bibliographic citations imposed by scientific publishers and magazines in their publications.</p>
+<ul>
+<li><a href="https://quarto.org/docs/journals/">List of editorial formats supported in Quarto</a>.</li>
+<li><a href="https://github.com/quarto-journals">Alternative list of editorial formats supported in Quarto</a>.</li>
+</ul>
+<p>Sometimes it will be necessary to add additional code to make fine adjustments to the document templates, so that we can adhere to the requirements imposed by the publisher for that publication. The following tutorial offers information on the different points at which we can insert additional code to perform these fine adjustments.</p>
+<ul>
+<li><a href="https://quarto.org/docs/journals/templates.html">Templates adjustment</a>.</li>
+</ul>
+<p>Finally, in case there is no template for the format we need, it is always possible to create our own article format.</p>
+<ul>
+<li><a href="https://quarto.org/docs/journals/formats.html">Creating our own article template</a>.</li>
+</ul>
+<p>The initial step is to create a new project directory and run within it the command to download the standard template (not customized yet) for creating post formats scientists in Quarto. Suppose the project directory is called <code>jourA</code>. Be careful, because in this example the symbol <code>$</code> should not be entered in the terminal; we are just using it to differentiate the user input from the response it returns the terminal when executing the command.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd jourA</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto create extension journal</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Extension Name › jourA</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">Creating</span> extension at /home/jfelipe/quarto/dev/jourA:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created README.md</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created template.qmd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/jourA.lua</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/styles.css</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/_extension.yml</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/header.tex</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created bibliography.bib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Several files are created, including:</p>
+<ul>
+<li><p><code>_extensions/jourA/_extension.yml</code>, which defines the output formats available in this article template. For example, if we define an output format <code>html</code> and another <code>pdf</code> in this template, these will be available in the Quarto document as <code>jourA-html</code> and <code>jourA-pdf</code> when a Quarto document uses our template.</p></li>
+<li><p><code>template.pdf</code>, which is the example document that is generated to demonstrate to the user the structure and options available and start working on it.</p></li>
+</ul>
+<section id="the-keep-tex-option-true" class="level2 callout-info" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="the-keep-tex-option-true"><span class="header-section-number">7.1</span> The <code>keep-tex</code> option: true</h2>
+<p>If you review the examples offered in the publication template creation guide, you will see as in the output format options of the <code>template.qmd</code> file, within the PDF output the <code>keep-tex: true</code> option is usually included. This option forces the file not to be deleted LaTeX (with <code>.tex</code> extension) that is created as a previous step to compile the final document in PDF. The reason is to allow the user to modify the file if necessary. LaTeX directly and compile it manually.</p>
+<p>However, remember that if you press the <em>Render</em> button again for the PDF format in RStudio, or run <code>quarto render --to pdf</code> on the command line, said file with <code>.tex</code> extension <strong>it is overwritten</strong> and we would lose the changes we have made. Consequently, it is better to copy it to another location before making manual adjustments or create a new one branch (if we use version control) to adjust the file in it without the risk to overwrite the changes made.</p>
 </section>
-<section id="publication-ready-figures" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="publication-ready-figures"><span class="header-section-number">7.2</span> Publication-ready figures</h2>
+<section id="figures-and-graphs-for-publication" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="figures-and-graphs-for-publication"><span class="header-section-number">7.2</span> Figures and graphs for publication</h2>
+<p>An important advantage of using Quarto to create our articles is being able to integrate the results of the execution of our code (graphs, tables, results of evaluation of models and algorithms, etc.) directly in our scientific documents. This greatly mitigates the drawbacks already mentioned at the beginning of the workshop to keep all elements updated, allowing us to ensure that we are using the correct version of the code on the appropriate data.</p>
+<ul>
+<li><a href="https://github.com/hbctraining/publication_perfect?tab=readme-ov-file">Publication Perfect</a>: a tutorial with open online materials on how to improve the elements of our publications and articles, created by the Harvard Chan Bioinformatics Core group.</li>
+</ul>
+<p>Let’s remember some of the packages in R that allow us to create graphs and tables now prepared for publication:</p>
+<ul>
+<li><p><a href="https://hbiostat.org/r/hmisc/"><code>Hmisc</code></a>: includes many functions for description of data and creation of graphs and tables summarizing data and models, ready to publish.</p></li>
+<li><p><a href="https://hbiostat.org/r/hmisc/examples">Examples reproducible with <code>Hmisc</code></a>. It is indicated that the examples are for R Markdown, but they actually work also for Quarto (since that the same <code>knitr</code> engine is used by default to process and execute the blocks of code.)</p></li>
+<li><p><a href="https://github.com/dcomtois/summarytools"><code>summarytools</code></a>: offers many features and tools to present summaries of data tables and data frames, both in table as in graphs for EDA.</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html">Examples of use of <code>summarytools</code></a>.</p></li>
+<li><p><a href="https://rpkgs.datanovia.com/ggpubr/"><code>ggpubr</code></a>: package to help customize graphics created with <code>ggplot2</code>, so that they are ready for inclusion in publications scientific.</p></li>
+<li><p><a href="http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/">Collection of tutorials and examples for creating graphs with <code>ggpubr</code></a>.</p></li>
+<li><p><a href="https://thatdatatho.com/easily-create-descriptive-summary-statistic-tables-r-studio/">List and examples of packages to create tables in publications</a>.</p></li>
+</ul>
 </section>
-<section id="journal-article-templates" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="journal-article-templates"><span class="header-section-number">7.3</span> Journal article templates</h2>
+<section id="facilitate-citation-of-articles" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="facilitate-citation-of-articles"><span class="header-section-number">7.3</span> Facilitate citation of articles</h2>
+<p>In a context of the academic and research world in which the volume of works and published articles has grown exponentially in digital media, it is very It is important to facilitate the work of other researchers as much as possible when they want to cite our publications. On the other hand, there are many reference services of citations and databases that help researchers find materials that they should review.</p>
+<p>We can include metadata in our document to facilitate full automation or partial of this process of indexing publications and citations of our work.</p>
+<p>The following tutorial shows several examples of metadata fields to facilitate the citations that we can include in the header of the document, including information about the journal or publication that contains the article (such as the DOI), as well as specific formats compatible with scientific bibliography indexing engines such as Google Scholar.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/create-citeable-articles.html">Guide for creating citable articles in Quarto</a>.</li>
+</ul>
+<p>By default, when we include this information in the header of the Quarto document it must create an appendix with the citation information in plain text and in BibTeX.</p>
 </section>
-<section id="examples-and-best-practices" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="examples-and-best-practices"><span class="header-section-number">7.4</span> Examples and best practices</h2>
+<section id="example-of-using-scientific-article-templates" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="example-of-using-scientific-article-templates"><span class="header-section-number">7.4</span> Example of using scientific article templates</h2>
+<section id="elsevier-magazine-template" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="elsevier-magazine-template"><span class="header-section-number">7.4.1</span> Elsevier Magazine Template</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prerequisite: have LaTeX installed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section shows how to generate a <em>draft</em> of an article to send to a scientific journal from the Elsevier publishing house. For this process to work, remember You must previously have a LaTeX distribution installed on your computer (such as TeX Live) or install the minimal TinyTeX distribution in RStudio.</p>
+</div>
+</div>
+<p>In this case, the steps to follow are quite simple:</p>
+<ol type="1">
+<li>We create a new directory to save our project, for example, a folder with the name <code>example-elsevier</code>.</li>
+<li>In the terminal (for example in RStudio, tab in the bottom left panel), We enter the newly created folder and execute a command to download the template and start using it:</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> example-elsevier</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template quarto-journals/elsevier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>We create a new project in RStudio on the already existing directory in which we have downloaded the template files.</li>
+<li>We open the file <code>example-elsevier.qmd</code> and press the <em>Render</em> button to generate the the output in PDF.</li>
+</ol>
+<p>If we had previously created our project with a generic Quarto document, it will not we have to start from scratch. Just open a terminal inside the project directory and execute:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-journals/elsevier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, if we want to generate the <em>draft</em> article in PDF format from the command line, we execute:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render article.qmd <span class="at">--to</span> elsevier-pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Take a good look at the output format option specified in the <code>.qmd</code> file to generate the <em>draft</em> article:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>example-elsevier.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="example-elsevier.qmd"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">elsevier-pdf</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -733,8 +885,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./08-FAIR.html" class="pagination-link" aria-label="FAIR data principles">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR data principles</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08-FAIR.html" class="pagination-link" aria-label="FAIR Principles">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR Principles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

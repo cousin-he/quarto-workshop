@@ -25,7 +25,7 @@
     "href": "01-quarto.html#reproducible-research",
     "title": "1  Scientific documents",
     "section": "1.2 Reproducible research",
-    "text": "1.2 Reproducible research\nFor many decades, the scientific method has been based on the publication of research papers describing the results of data analysis and experiments. In all cases, it is essential to be able to trust the conditions, the data collected, the method of analysis and execution of the experiments, as well as the various kinds of tools, including software, that the authors of the publication used to carry it out.\nHowever, the numerous advances in recent years in the tools and methods of analysis make it much easier to check the results of these analyses. We might assume that this makes the work of scientists much easier, but in reality the opposite is true. Let us look at some examples:\n\nOncology (Begley & Ellis, 2012): The Biotechnology Department of the firm Amgen (Thousand Oaks, CA, USA) was able to confirm only 6 of a total of 53 emblematic research articles published in this area. Bayer HealthCare (Germany) was able to validate only 25% of the studies analyzed.\nPsychology (Wicherts et al., 2006): 73% of the authors of a total of 249 articles published by the APA did not respond within a period of 6 months to the questions and requests formulated about the data they used in their research.\nEconomics and Finance (Burman et al., 2010): A comparison of different software packages applied in the execution of various financial and statistical model analyses shows that each of these packages produces very different results using the same statistical techniques directly applied to identical data as those used in the original publication.\n\nIn fact, articles have even appeared suggesting that many of the results published in areas such as Medicine may not be entirely reliable (Ioannidis, 2005). As a result of all these recent findings, a great controversy has been generated throughout the scientific and research community, accompanied by a deep crisis of confidence.\nNevertheless, as a well-known comic strip about the academic world and research (see Figure 1.2) very well describes, the process of developing scientific publications is based primarily on the continuous review of methods and results (starting with the students themselves and their supervisors).\n\n\n\n\n\n\nFigure 1.2: Comic strip representing the review model for scientific publications. Source: PhD comics.\n\n\n\nThe Figure 1.3 shows a graph published in the prestigious journal Science Magazine (Brainard et al., 2018), which represents the data on the evolution of the number of research articles retracted or withdrawn for various reasons, between 1997 and 2014. In this graph, we can see how the improvement of tools and the greater availability of resources allow for the analysis and review of a greater volume of publications and analyses, which allows for the detection of a greater number of problematic cases.\n\n\n\n\n\n\nFigure 1.3: Evolution of the number of scientific publications retracted or withdrawn for various reasons, between 1997 and 2014. Source: Science Magazine (Brainard et al., 2018).\n\n\n\n\n1.2.1 Reproducibility and replicability\nThere is often talk of reproducing and replicating a data analysis or a scientific experiment (Leek & Peng, 2015). However, many evidences can found showing that there are incompatible definitions of these two and other related terms (Barba, 2018). Be very careful, therefore, because depending on the scientific community or the field of knowledge in which we find ourselves, the meaning of these two terms may even be entirely opposite to their accepted definition in other areas 1. Here we will stick to the definition accepted in a large number of areas, including statistics or scientific computing (see Barba, 2018, p. 33):\n\nReproducibility: It is defined as the ability to recompute the results of an analysis, with the same data that were used in the original analysis, and knowing the details of the sequence (workflow or pipeline) of operations that make up said analysis. Certain premises must be able to be guaranteed:\nIf we use the same tools (e.g. R, a certain list of packages, the same versions of all packages and dependencies), as well as the same code (R scripts) on the same data, the results and conclusions must be consistent with those of the original analysis.\nThe authors of the original analysis must provide all the elements (data, code and procedure used) to allow the analysis to be reproducible (Barba, 2018).\nReplicability: It is defined as the ability to perform an experiment or analysis independent of the original, that addresses the same objective but on a set of data different from that used in the initial study. If the results are not consistent, it will be necessary to carry out more replications and harmonize the results and conclusions through appropriate techniques, such as meta-analysis.\n\n\n\n1.2.2 Replication levels\nDepending on the elements published by the authors of the original study, as well as the level of detail with which the process for carrying out the study is described, the steps that have been followed and the tools used, we have different levels of replicability or reproducibility, represented in the ?fig-spectrum-replica.\n\nNot reproducible: No data, code or any specific description of the implementation of the study or analysis is provided. Many scientific publications no longer accept publishing articles under these conditions.\nCode or Data: A good number of publishers request that the data sets used in the analysis or study of the publication be accessible through a URL, either because they are available in a public repository or because the authors of the article have published it. Likewise, many publications require that the software code to carry out the analysis is also publicly accessible, in an open source repository or in a freely accessible version control service project.\nCode and data: Ideally, both the code and the data should be publicly accessible for anyone who wants to examine them or use them to reproduce the results (validation) or replicate the analysis with other data or other cases.\nRuntime environment and linked data: A further step to facilitate the reproducibility of studies consists of publishing code and metadata files with more precise information about the programming language, the software packages used and any other dependencies necessary to carry out the same study or analysis. Another variant to facilitate reproducibility is to encapsulate the code and dependencies in a preconfigured virtual container, which can be downloaded and executed directly.\nGold standard: The most advanced level would consist of documenting all the procedures performed during the study or analysis, including the coding of the tasks of obtaining, cleaning and preparing the data, as well as the generation of graphics to visualize the results or any other results derived from the study.\n\n\n\n\n\n\n\nFigure 1.4: Replication levels spectrum in scientific publications. Source: Peng (2011).\n\n\n\n\n\n1.2.3 Replicability tools\nCertain technologies and tools that have become more sophisticated and refined in recent years are making it easier to replicate data processing and analysis.\n\nVersion Control Systems for software code (SCV): tools such as Git, Mercurial and web services such as GitHub or GitLab have popularized the creation and publication of projects that allow the management of the software code that has been created, controlling the changes and the released versions. Web services also integrate a good number of tools to support different facets of the software development process, such as the generation of documentation, manuals and examples, error reports and requests for improvements, continuous integration and continuous deployment (CI/CD), systematic testing of the generated code, etc. If you have not yet considered how using a source code version control tool can benefit you, take a look at Figure 1.5 where you will relive a situation that is unfortunately very common among researchers and scientists who develop software solutions.\n\n\n\n\n\n\n\nFigure 1.5: Software version control. Source: PhD Comics\n\n\n\n\nSoftware virtualization and containers: In a technological environment dominated by the contracting and deployment of computing infrastructure and services in cloud computing architectures, packaging and virtualization tools for software applications and services that can be installed and deployed in a short time have revolutionized the way software products are published and managed, including data processing and analysis products.\nData version control: In a similar way to SCV for source code, software is appearing to apply the same principles to data files. In this way, we can control different versions of each data file, modifications made to them, etc. One of these tools is Data Version Control (DVC), which allows versioning of data and models. As a result, we can know at all times which version of the data and which list of features have been included in each model considered during the analysis, keeping the descriptive information about these three essential components that must always be cohesive.\n\n\n\n\n\n\n\nFigure 1.6: Data, code and model versioning example maintained by DVC. Source: DVC Documentation.\n\n\n\n\nModel and experiment management: Another type of machine learning project management tool is one that allows the organization, monitoring, comparison, and selection of the experiments and models we have carried out. One of the most recent notable examples is ML Flow, which provides support for model tuning, evaluation, and optimization, deployment of models in production environments, creation of a registry of pre-trained models, etc. Of course, it is possible to combine this type of tool with others such as DVC, creating a comprehensive management environment for our projects.\nCreation and management of data processing pipelines: the last essential element in any data processing and analysis project that must take care of scalability is a tool for creation and management of data processing and analysis flows or pipelines. The set of all the pipelines in our project make up the general workflow of the project. These tools are known as data or workflow orchestrators. In this category, we have both very powerful and feature-packed tools such as Apache Airflow or Prefect and simpler and more straightforward ones such as Luigi.\n\nOf course, the R community has not remained oblivious to these new trends, in particular the R OpenSci initiative, within which we find many packages (published in the official CRAN repository) that cover various aspects of scientific work, including the management of pipelines and workflows through the targets package.\n\nUser manual for the R package targets.",
+    "text": "1.2 Reproducible research\nFor many decades, the scientific method has been based on the publication of research papers describing the results of data analysis and experiments. In all cases, it is essential to be able to trust the conditions, the data collected, the method of analysis and execution of the experiments, as well as the various kinds of tools, including software, that the authors of the publication used to carry it out.\nHowever, the numerous advances in recent years in the tools and methods of analysis make it much easier to check the results of these analyses. We might assume that this makes the work of scientists much easier, but in reality the opposite is true. Let us look at some examples:\n\nOncology (Begley & Ellis, 2012): The Biotechnology Department of the firm Amgen (Thousand Oaks, CA, USA) was able to confirm only 6 of a total of 53 emblematic research articles published in this area. Bayer HealthCare (Germany) was able to validate only 25% of the studies analyzed.\nPsychology (Wicherts et al., 2006): 73% of the authors of a total of 249 articles published by the APA did not respond within a period of 6 months to the questions and requests formulated about the data they used in their research.\nEconomics and Finance (Burman et al., 2010): A comparison of different software packages applied in the execution of various financial and statistical model analyses shows that each of these packages produces very different results using the same statistical techniques directly applied to identical data as those used in the original publication.\n\nIn fact, articles have even appeared suggesting that many of the results published in areas such as Medicine may not be entirely reliable (Ioannidis, 2005). As a result of all these recent findings, a great controversy has been generated throughout the scientific and research community, accompanied by a deep crisis of confidence.\nNevertheless, as a well-known comic strip about the academic world and research (see Figure 1.2) very well describes, the process of developing scientific publications is based primarily on the continuous review of methods and results (starting with the students themselves and their supervisors).\n\n\n\n\n\n\nFigure 1.2: Comic strip representing the review model for scientific publications. Source: PhD comics.\n\n\n\nThe Figure 1.3 shows a graph published in the prestigious journal Science Magazine (Brainard et al., 2018), which represents the data on the evolution of the number of research articles retracted or withdrawn for various reasons, between 1997 and 2014. In this graph, we can see how the improvement of tools and the greater availability of resources allow for the analysis and review of a greater volume of publications and analyses, which allows for the detection of a greater number of problematic cases.\n\n\n\n\n\n\nFigure 1.3: Evolution of the number of scientific publications retracted or withdrawn for various reasons, between 1997 and 2014. Source: Science Magazine (Brainard et al., 2018).\n\n\n\n\n1.2.1 Reproducibility and replicability\nThere is often talk of reproducing and replicating a data analysis or a scientific experiment (Leek & Peng, 2015). However, many evidences can found showing that there are incompatible definitions of these two and other related terms (Barba, 2018). Be very careful, therefore, because depending on the scientific community or the field of knowledge in which we find ourselves, the meaning of these two terms may even be entirely opposite to their accepted definition in other areas 1. Here we will stick to the definition accepted in a large number of areas, including statistics or scientific computing (see Barba, 2018, p. 33):\n\nReproducibility: It is defined as the ability to recompute the results of an analysis, with the same data that were used in the original analysis, and knowing the details of the sequence (workflow or pipeline) of operations that make up said analysis. Certain premises must be able to be guaranteed:\n\nIf we use the same tools (e.g. R, a certain list of packages, the same versions of all packages and dependencies), as well as the same code (R scripts) on the same data, the results and conclusions must be consistent with those of the original analysis.\nThe authors of the original analysis must provide all the elements (data, code and procedure used) to allow the analysis to be reproducible (Barba, 2018).\n\nReplicability: It is defined as the ability to perform an experiment or analysis independent of the original, that addresses the same objective but on a set of data different from that used in the initial study. If the results are not consistent, it will be necessary to carry out more replications and harmonize the results and conclusions through appropriate techniques, such as meta-analysis.\n\n\n\n1.2.2 Replication levels\nDepending on the elements published by the authors of the original study, as well as the level of detail with which the process for carrying out the study is described, the steps that have been followed and the tools used, we have different levels of replicability or reproducibility, represented in the Figure 1.4.\n\nNot reproducible: No data, code or any specific description of the implementation of the study or analysis is provided. Many scientific publications no longer accept publishing articles under these conditions.\nCode or Data: A good number of publishers request that the data sets used in the analysis or study of the publication be accessible through a URL, either because they are available in a public repository or because the authors of the article have published it. Likewise, many publications require that the software code to carry out the analysis is also publicly accessible, in an open source repository or in a freely accessible version control service project.\nCode and data: Ideally, both the code and the data should be publicly accessible for anyone who wants to examine them or use them to reproduce the results (validation) or replicate the analysis with other data or other cases.\nRuntime environment and linked data: A further step to facilitate the reproducibility of studies consists of publishing code and metadata files with more precise information about the programming language, the software packages used and any other dependencies necessary to carry out the same study or analysis. Another variant to facilitate reproducibility is to encapsulate the code and dependencies in a preconfigured virtual container, which can be downloaded and executed directly.\nGold standard: The most advanced level would consist of documenting all the procedures performed during the study or analysis, including the coding of the tasks of obtaining, cleaning and preparing the data, as well as the generation of graphics to visualize the results or any other results derived from the study.\n\n\n\n\n\n\n\nFigure 1.4: Replication levels spectrum in scientific publications. Source: Peng (2011).\n\n\n\n\n\n1.2.3 Replicability tools\nCertain technologies and tools that have become more sophisticated and refined in recent years are making it easier to replicate data processing and analysis.\n\nVersion Control Systems for software code (SCV): tools such as Git, Mercurial and web services such as GitHub or GitLab have popularized the creation and publication of projects that allow the management of the software code that has been created, controlling the changes and the released versions. Web services also integrate a good number of tools to support different facets of the software development process, such as the generation of documentation, manuals and examples, error reports and requests for improvements, continuous integration and continuous deployment (CI/CD), systematic testing of the generated code, etc. If you have not yet considered how using a source code version control tool can benefit you, take a look at Figure 1.5 where you will relive a situation that is unfortunately very common among researchers and scientists who develop software solutions.\n\n\n\n\n\n\n\nFigure 1.5: Software version control. Source: PhD Comics\n\n\n\n\nSoftware virtualization and containers: In a technological environment dominated by the contracting and deployment of computing infrastructure and services in cloud computing architectures, packaging and virtualization tools for software applications and services that can be installed and deployed in a short time have revolutionized the way software products are published and managed, including data processing and analysis products.\nData version control: In a similar way to SCV for source code, software is appearing to apply the same principles to data files. In this way, we can control different versions of each data file, modifications made to them, etc. One of these tools is Data Version Control (DVC), which allows versioning of data and models. As a result, we can know at all times which version of the data and which list of features have been included in each model considered during the analysis, keeping the descriptive information about these three essential components that must always be cohesive.\n\n\n\n\n\n\n\nFigure 1.6: Data, code and model versioning example maintained by DVC. Source: DVC Documentation.\n\n\n\n\nModel and experiment management: Another type of machine learning project management tool is one that allows the organization, monitoring, comparison, and selection of the experiments and models we have carried out. One of the most recent notable examples is ML Flow, which provides support for model tuning, evaluation, and optimization, deployment of models in production environments, creation of a registry of pre-trained models, etc. Of course, it is possible to combine this type of tool with others such as DVC, creating a comprehensive management environment for our projects.\nCreation and management of data processing pipelines: the last essential element in any data processing and analysis project that must take care of scalability is a tool for creation and management of data processing and analysis flows or pipelines. The set of all the pipelines in our project make up the general workflow of the project. These tools are known as data or workflow orchestrators. In this category, we have both very powerful and feature-packed tools such as Apache Airflow or Prefect and simpler and more straightforward ones such as Luigi.\n\nOf course, the R community has not remained oblivious to these new trends, in particular the R OpenSci initiative, within which we find many packages (published in the official CRAN repository) that cover various aspects of scientific work, including the management of pipelines and workflows through the targets package.\n\nUser manual for the R package targets.",
     "crumbs": [
       "Quarto",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Scientific documents</span>"
@@ -67,67 +67,78 @@
   {
     "objectID": "02-doctypes.html",
     "href": "02-doctypes.html",
-    "title": "2  Document types",
+    "title": "2  Types of documents",
     "section": "",
-    "text": "2.1 Individual documents",
+    "text": "2.1 Individual documents\nThe easiest way to work with Quarto is to create a document individual. Said document may use the sections or chunks of code to read input data or download it from some source, process them, analyze them and display the results. Graphics can be added, tables, equations, bibliographic references and many other elements.\nThe documents always have a standard structure:",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#individual-documents",
+    "href": "02-doctypes.html#individual-documents",
+    "title": "2  Types of documents",
+    "section": "",
+    "text": "Preamble: in which configuration options are specified for the creation of the document with Quarto and its associated tools.\nBody: the section that houses the main content of the document, including sections of Markdown-formatted text and sections of code executable. The software code may be shown, if useful, or be hidden in the final result.\nReferences: References are included at the end of the document bibliographical, as is usual in scientific texts.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
     "objectID": "02-doctypes.html#books",
     "href": "02-doctypes.html#books",
-    "title": "2  Document types",
+    "title": "2  Types of documents",
     "section": "2.2 Books",
-    "text": "2.2 Books",
+    "text": "2.2 Books\nThe natural evolution of the previous case is to gather a collection of documents individuals in a single book. Quarto books allows you to create this type of documents, structured in parts, chapters and sections. The options of configuration will allow you to create an introductory cover for the site website that contains the chapters (one document per chapter) or the elements necessary to create a PDF book, similar to those published by a editorial.",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
-    "objectID": "02-doctypes.html#manuscripts-scholarly-articles",
-    "href": "02-doctypes.html#manuscripts-scholarly-articles",
-    "title": "2  Document types",
-    "section": "2.3 Manuscripts (scholarly articles)",
-    "text": "2.3 Manuscripts (scholarly articles)",
+    "objectID": "02-doctypes.html#articles-and-publications",
+    "href": "02-doctypes.html#articles-and-publications",
+    "title": "2  Types of documents",
+    "section": "2.3 Articles and publications",
+    "text": "2.3 Articles and publications\nOne of the key results in any scientific process is the production of articles and publications (technical reports, etc.) that collect the results and progress achieved scientists. In this case, Quarto can also help us, with the collaboration of other essential elements such as the R package rticles, which provides templates to generate articles according to the specifications of the main scientific publications and publishers in a multitude of fields of knowledge.",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
     "objectID": "02-doctypes.html#presentations",
     "href": "02-doctypes.html#presentations",
-    "title": "2  Document types",
+    "title": "2  Types of documents",
     "section": "2.4 Presentations",
-    "text": "2.4 Presentations",
+    "text": "2.4 Presentations\nIt is also possible to generate presentations (usually in HTML format) with slides through Quarto. In this case, we would have the support of several packages and environments of creating web presentations at our disposal, such as reveal.js (HTML), Beamer (for LaTeX/PDF) or MS Office PPTX format.\nWe will not discuss this case in this workshop, but you can obtain more information in the online guide, available at https://quarto.org/docs/presentations/.",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
     "objectID": "02-doctypes.html#websites",
     "href": "02-doctypes.html#websites",
-    "title": "2  Document types",
+    "title": "2  Types of documents",
     "section": "2.5 Websites",
-    "text": "2.5 Websites",
+    "text": "2.5 Websites\nAnother option that may be interesting is to create personal websites (for example, for show our CV and a selection of featured works, publications, etc.), blogs and even corporate websites (organization, research group) quickly using Quarto. There are numerous free and paid templates now available to create websites with a beautiful look. harmonized, although we will need to learn a little HTML and CSS to be able to customize further our website.\nHere is an example of an environmental technology researcher website created with Fourth: https://www.mm218.dev/. More examples of different types of websites generated with Quarto: https://drganghe.github.io/quarto-academic-site-examples.html.\nMore information and tutorials for creating websites with Quarto can be found at https://quarto.org/docs/websites/.",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
     "objectID": "02-doctypes.html#dashboards",
     "href": "02-doctypes.html#dashboards",
-    "title": "2  Document types",
+    "title": "2  Types of documents",
     "section": "2.6 Dashboards",
-    "text": "2.6 Dashboards",
+    "text": "2.6 Dashboards\nFinally, it is possible to create custom dashboards for monitoring. of data, analysis of models and results or for examples and teaching applications using Quarto, as described in the guide https://quarto.org/docs/dashboards/.\nIn this case we can include among the tools Shiny, a package software for R (also available for Python) with which to create interactive applications based into data quickly and easily.",
     "crumbs": [
       "Quarto",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Document types</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Types of documents</span>"
     ]
   },
   {
@@ -135,7 +146,18 @@
     "href": "03-workflow.html",
     "title": "3  Quarto workflow",
     "section": "",
-    "text": "3.1 Required tools",
+    "text": "3.1 Document assembly line\nWe can consider the process of creating a document in Quarto as a chain assembly in which various software tools are applied sequentially to produce the final document in different output formats.\nFinally, it should be noted that document viewing programs are needed to load the documents. Output documents, depending on format: web browser (HTML), MS Word (DOC/DOCX files), PDF viewer (PDF files).",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#document-assembly-line",
+    "href": "03-workflow.html#document-assembly-line",
+    "title": "3  Quarto workflow",
+    "section": "",
+    "text": "Quarto: The first agent that intervenes in the interpretation of the file with extension .qmd is Quarto. The program must be previously installed on our computer to that the development environment that we decide to use (RStudio, Microsoft VS Code, etc.) can find it. Quarto is responsible for interpreting the content of the file and considering the different configuration options that we have inserted in the header of the document, as well as in executable code fragments, to delegate the construction tasks of the different parts of the document to other tools.\nQuarto is also responsible for automatically inserting some authoring elements of documents (such as callouts, explained in ?sec-callouts), while the generation of other elements (numbering of figures, tables, bibliographic citations, etc.) It is delegated to other tools like Pandoc.\nCode execution engine (engine): One of the great advantages of document production in Quarto is the possibility of inserting fragments of executable code in our documents. Quarto can work with different engines (engines in Quarto terminology) that interpret the code and return the result of its execution to integrate it into the final document.\n\nAll R language code blocks use the knitr package as engine execution.\nExecutable code blocks in other languages ​​supported in Quarto (Python, Julia, Observable) use the kernel available in the Jupyter tool for execution, except in the explicit case that blocks of code are combined in R and Python in the same document.\nIn the particular case that the same document combines code blocks in R and Python, then the Knitr tool is used for the R code along with the R reticulate package to execute the blocks written in Python. This combination has the additional advantage that it is possible “pass” variables and results between the R and Python runtimes, so that we can use variables and data structures created in the R part within our Python code and vice versa.\n\nMarkdown: The intermediate product of all the previous phases is a file in Markdown (.md extension), which already integrates the formatted textual content and many of the results and elements additional generated by the different tools that have come into play up to this point. If useful, this intermediate file can be stored for review or for use it for other purposes. This file is then sent to Pandoc for the last stage document creation.\nPandoc: The Pandoc project offers a software tool to translate documents between different information representation formats. As you can quickly see On the main page of the project, the list of supported formats is really extensive. For purposes Practically speaking, Quarto uses Pandoc’s ability to receive as input a document in Markdown and generate output in three possible formats: HTML, DOC/DOCX or PDF. The Markdown file must include specific syntax to encode certain elements (cross-references, bibliographic citations, figures, tables, equations, etc.) that we will present in the following chapters, so that Pandoc can interpret these elements and represent them appropriately in each output format.",
     "crumbs": [
       "Quarto",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
@@ -146,7 +168,7 @@
     "href": "03-workflow.html#producing-html",
     "title": "3  Quarto workflow",
     "section": "3.2 Producing HTML",
-    "text": "3.2 Producing HTML",
+    "text": "3.2 Producing HTML\nThe default option for the output format of Quarto documents is to generate an HTML document, which can be viewed with most modern web browsers. This output format has several advantages:\n\nIt is quite likely that the recipient of the document already has one or more browsers installed on your system to view the document, if we send or share it directly to you.\nIt is easier to publish this type of documents on the Web, using one of the different platforms available for this purpose:\n\nQuarto Pub, a document publishing service that allows are publicly accessible.\nIndividual documents (see ?sec-individual-docs) and books or collections of Documents (see ?sec-books) can be published easily and quickly on publishing sites. hosting software projects such as GitHub or GitLab, which also provide hosting services version control, bug/improvement reporting management, documentation, testing, etc.",
     "crumbs": [
       "Quarto",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
@@ -157,7 +179,7 @@
     "href": "03-workflow.html#producing-pdf",
     "title": "3  Quarto workflow",
     "section": "3.3 Producing PDF",
-    "text": "3.3 Producing PDF\n\n3.3.1 Customising PDF documents",
+    "text": "3.3 Producing PDF\nUnlike in HTML, when we generate PDF documents an additional compilation step is added of the document at the end of the entire assembly line, using LaTeX and the compilation engine XeLaTeX to generate PDF output. Therefore, if we select this output option it is essential have a TeX/LaTeX distribution previously installed on our system, to compile and generate the documents. If we do not have any yet, you can install TinyTeX, a lightweight distribution of TeX Live which is much smaller in size (~100 MB vs. to more than 4 GB of full TeX Live).\n\n3.3.1 Customising PDF documents\nPredefined LaTeX document templates can be used. By default, Quarto uses various templates from the LaTeX package collection koma-script.\nSome of these templates can work relatively easily in Quarto, while Others require some adaptation, for which some knowledge about Latex. This is probably a more advanced topic for many users, so for now I don’t We are going to discuss it in this introductory workshop.\nHowever, as an example, we offer below a list of some examples that illustrate the enormous possibilities of this type of templates:\n\nProfessor R.J. Hyndman has published Monash University Quarto document templates, that can be used as a starting point to customize them in our own projects.\nThe repository Awesome Quarto Thesis collects a list of Quarto templates to generate TFG/TFM reports and doctoral theses for some universities. Also linked is a generic extension template for Quarto, designed to make it easier for other users to customize it according to the criteria marked by their own institution to generate these jobs.",
     "crumbs": [
       "Quarto",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Quarto workflow</span>"
@@ -276,89 +298,100 @@
   {
     "objectID": "07-manuscripts.html",
     "href": "07-manuscripts.html",
-    "title": "7  Scientific articles",
+    "title": "7  Scientific publications",
     "section": "",
-    "text": "7.1 Replicability in scientific publications",
+    "text": "7.1 The keep-tex option: true\nIf you review the examples offered in the publication template creation guide, you will see as in the output format options of the template.qmd file, within the PDF output the keep-tex: true option is usually included. This option forces the file not to be deleted LaTeX (with .tex extension) that is created as a previous step to compile the final document in PDF. The reason is to allow the user to modify the file if necessary. LaTeX directly and compile it manually.\nHowever, remember that if you press the Render button again for the PDF format in RStudio, or run quarto render --to pdf on the command line, said file with .tex extension it is overwritten and we would lose the changes we have made. Consequently, it is better to copy it to another location before making manual adjustments or create a new one branch (if we use version control) to adjust the file in it without the risk to overwrite the changes made.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific publications</span>"
     ]
   },
   {
-    "objectID": "07-manuscripts.html#publication-ready-figures",
-    "href": "07-manuscripts.html#publication-ready-figures",
-    "title": "7  Scientific articles",
-    "section": "7.2 Publication-ready figures",
-    "text": "7.2 Publication-ready figures",
+    "objectID": "07-manuscripts.html#figures-and-graphs-for-publication",
+    "href": "07-manuscripts.html#figures-and-graphs-for-publication",
+    "title": "7  Scientific publications",
+    "section": "7.2 Figures and graphs for publication",
+    "text": "7.2 Figures and graphs for publication\nAn important advantage of using Quarto to create our articles is being able to integrate the results of the execution of our code (graphs, tables, results of evaluation of models and algorithms, etc.) directly in our scientific documents. This greatly mitigates the drawbacks already mentioned at the beginning of the workshop to keep all elements updated, allowing us to ensure that we are using the correct version of the code on the appropriate data.\n\nPublication Perfect: a tutorial with open online materials on how to improve the elements of our publications and articles, created by the Harvard Chan Bioinformatics Core group.\n\nLet’s remember some of the packages in R that allow us to create graphs and tables now prepared for publication:\n\nHmisc: includes many functions for description of data and creation of graphs and tables summarizing data and models, ready to publish.\nExamples reproducible with Hmisc. It is indicated that the examples are for R Markdown, but they actually work also for Quarto (since that the same knitr engine is used by default to process and execute the blocks of code.)\nsummarytools: offers many features and tools to present summaries of data tables and data frames, both in table as in graphs for EDA.\nExamples of use of summarytools.\nggpubr: package to help customize graphics created with ggplot2, so that they are ready for inclusion in publications scientific.\nCollection of tutorials and examples for creating graphs with ggpubr.\nList and examples of packages to create tables in publications.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific publications</span>"
     ]
   },
   {
-    "objectID": "07-manuscripts.html#journal-article-templates",
-    "href": "07-manuscripts.html#journal-article-templates",
-    "title": "7  Scientific articles",
-    "section": "7.3 Journal article templates",
-    "text": "7.3 Journal article templates",
+    "objectID": "07-manuscripts.html#facilitate-citation-of-articles",
+    "href": "07-manuscripts.html#facilitate-citation-of-articles",
+    "title": "7  Scientific publications",
+    "section": "7.3 Facilitate citation of articles",
+    "text": "7.3 Facilitate citation of articles\nIn a context of the academic and research world in which the volume of works and published articles has grown exponentially in digital media, it is very It is important to facilitate the work of other researchers as much as possible when they want to cite our publications. On the other hand, there are many reference services of citations and databases that help researchers find materials that they should review.\nWe can include metadata in our document to facilitate full automation or partial of this process of indexing publications and citations of our work.\nThe following tutorial shows several examples of metadata fields to facilitate the citations that we can include in the header of the document, including information about the journal or publication that contains the article (such as the DOI), as well as specific formats compatible with scientific bibliography indexing engines such as Google Scholar.\n\nGuide for creating citable articles in Quarto.\n\nBy default, when we include this information in the header of the Quarto document it must create an appendix with the citation information in plain text and in BibTeX.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific publications</span>"
     ]
   },
   {
-    "objectID": "07-manuscripts.html#examples-and-best-practices",
-    "href": "07-manuscripts.html#examples-and-best-practices",
-    "title": "7  Scientific articles",
-    "section": "7.4 Examples and best practices",
-    "text": "7.4 Examples and best practices",
+    "objectID": "07-manuscripts.html#example-of-using-scientific-article-templates",
+    "href": "07-manuscripts.html#example-of-using-scientific-article-templates",
+    "title": "7  Scientific publications",
+    "section": "7.4 Example of using scientific article templates",
+    "text": "7.4 Example of using scientific article templates\n\n7.4.1 Elsevier Magazine Template\n\n\n\n\n\n\nPrerequisite: have LaTeX installed\n\n\n\nThis section shows how to generate a draft of an article to send to a scientific journal from the Elsevier publishing house. For this process to work, remember You must previously have a LaTeX distribution installed on your computer (such as TeX Live) or install the minimal TinyTeX distribution in RStudio.\n\n\nIn this case, the steps to follow are quite simple:\n\nWe create a new directory to save our project, for example, a folder with the name example-elsevier.\nIn the terminal (for example in RStudio, tab in the bottom left panel), We enter the newly created folder and execute a command to download the template and start using it:\n\n\n\nTerminal\n\ncd example-elsevier\nquarto use template quarto-journals/elsevier\n\n\nWe create a new project in RStudio on the already existing directory in which we have downloaded the template files.\nWe open the file example-elsevier.qmd and press the Render button to generate the the output in PDF.\n\nIf we had previously created our project with a generic Quarto document, it will not we have to start from scratch. Just open a terminal inside the project directory and execute:\n\n\nTerminal\n\nquarto add quarto-journals/elsevier\n\nFinally, if we want to generate the draft article in PDF format from the command line, we execute:\n\n\nTerminal\n\nquarto render article.qmd --to elsevier-pdf\n\nTake a good look at the output format option specified in the .qmd file to generate the draft article:\n\n\nexample-elsevier.qmd\n\nformat:\n  elsevier-pdf:\n    keep-tex: true",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific articles</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Scientific publications</span>"
     ]
   },
   {
     "objectID": "08-FAIR.html",
     "href": "08-FAIR.html",
-    "title": "8  FAIR data principles",
+    "title": "8  FAIR Principles",
     "section": "",
-    "text": "8.1 Overview",
+    "text": "8.1 Overview\nFor years, a movement has developed within the scientific community unstoppable to promote access to all information related to jobs, experiments and scientific publications, so that their validation is facilitated and reproduction/replication by other interested researchers or experts.\nThis movement has especially concentrated, in its initial phase, on guaranteeing at least access to the raw materials necessary to develop many of these projects: the data. The fundamental principles that must be met so that data can be indexed and reused as much as possible, they are called FAIR Principles and are included, among other sources, in the European Commission guidance documents for researchers participating in projects funded by said organization. These FAIR principles were initially established by Wilkinson et al. (2016) and they are:\nIt is important to emphasize the importance of publishing openly and following good reviewable and reproducible/replicable research practices. For example, The National Commission for the Evaluation of Research Activity (CNEAI) has published in 2023-2024 new criteria for evaluation of publications valid for be able to be evaluated in the granting of a six-year period of research. Likewise, in all the recent calls financed by the different ministries of the Government of Spain It is required that research results, especially all publications, datasets, software and procedures are publicly accessible and comply with FAIR principles.\nHowever, there is still some way to go. A recent study (Kumar et al., 2024) analyzed the degree of compliance with the FAIR principles (the so-called FAIRness) of the results research published by recently funded multi-stakeholder projects within the European H2020 framework program and related to the agri-food sector. As main conclusions, less than 10% of the projects analyzed managed to comply with the FAIR principles, although these principles were fulfilled to a greater extent in the articles of research published in journals and conferences, as well as in books.\nIn general, another conclusion is that the European agri-food and rural sector is becoming increasingly dependent on data and that the application of the principles FAIR contributes to improving decision-making and better exploiting innovation results derived from these projects. However, it is also noted that the research community for the development of the agri-food and rural sector still has limited experience in the application of these principles.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR Principles</span>"
     ]
   },
   {
-    "objectID": "08-FAIR.html#source-code-publication",
-    "href": "08-FAIR.html#source-code-publication",
-    "title": "8  FAIR data principles",
-    "section": "8.2 Source code publication",
-    "text": "8.2 Source code publication",
+    "objectID": "08-FAIR.html#overview",
+    "href": "08-FAIR.html#overview",
+    "title": "8  FAIR Principles",
+    "section": "",
+    "text": "Findable: Data and metadata (data that describes the data, such as its format, content, meaning, link with other data, etc.) must receive a globally unique and persistent identifier that allows it to be located directly. The most used standard today is the DOI system (ISO 26324). The metadata must include clearly and explicitly identify the data they describe, and both data and metadata must be registered or indexed in sources that allow their search and retrieval.\nAccessible: Data and metadata must be obtainable through a standard and open communication protocol. Metadata must continue to remain accessible even when the data is no longer available.\nInteroperable: Data and metadata must use standard and open knowledge representation formats, vocabularies that follow FAIR principles and must include references to other data and metadata with which they are related.\nReusable: The data and metadata are described in a rich and precise manner, with multiple relevant attributes that facilitate their use by other users.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR Principles</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#publication-of-source-code-and-technical-documentation",
+    "href": "08-FAIR.html#publication-of-source-code-and-technical-documentation",
+    "title": "8  FAIR Principles",
+    "section": "8.2 Publication of source code and technical documentation",
+    "text": "8.2 Publication of source code and technical documentation\n\nPlatforms like GitHub and GitLab make project management and publishing much easier software within research initiatives and projects, as well as publication and maintenance of digital technical documentation centers on tools, procedures and good practices related to the activity of said initiatives.\nExamples of the SoilWise project, funded within the HE program of the European Community.\n\nSoilWise digital co-creation space on GitHub. It has been achieved creating an organization (free of charge), so that repositories can be created on this platform, grouped under the umbrella of the project, for different purposes: lists of software of interest, technical documentation, user manuals, architecture of the proposed platform, etc.\nDocumentation Center. Here we use the MkDocs solution, which works with the Python language (Quarto has great advantages in this aspect).\nRepository with data collection tools, documented in the page describing the data collection process in the project infrastructure.\n\nOpen repositories of data and research material such as Zenodo and Figshare can help publicize and cite research material. For example, Zendo can issue a persistent identifier (DOI) for a software repository on GitHub pointing to a particular version of the software that has been released and tagged from that project on GitHub. This allows it to be included in a scientific publication to know with certainty what exact version of the code was software has been used to perform the work reported in that publication.\n\nAs an example, Figure 8.1 shows the Zenodo page corresponding to the PyMPDATA software, which points to the original software repository hosted on GitHub, shown in turn in the Figure 8.2. we can see metadata cross-references that maintain connection consistency in both directions.\n\n\n\n\n\n\nFigure 8.1: PyMPDATA project page (v1.2.0) at Zenodo\n\n\n\n\n\n\n\n\n\nFigure 8.2: PyMPDATA (v1.2.0) project page on GitHub\n\n\n\n\nThe project page in Zenodo points to a specific version of the GitHub repository, and maintains a list of all the previously referenced versions of the same project. Each new version receives a different DOI, to differentiate them univocally.\nThe repository description page on GitHub displays, among other tags, the DOI for that version in particular, the DOI to the scientific article published in JOSS explaining this software, as well as other labels for attribution of project financing sources.",
+    "crumbs": [
+      "Publications",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR Principles</span>"
     ]
   },
   {
     "objectID": "08-FAIR.html#dataset-publication",
     "href": "08-FAIR.html#dataset-publication",
-    "title": "8  FAIR data principles",
+    "title": "8  FAIR Principles",
     "section": "8.3 Dataset publication",
-    "text": "8.3 Dataset publication",
+    "text": "8.3 Dataset publication\n\nZenodo is, probably along with Figshare, one of the most well-known and widely used open data repositories in research, especially in Europe, being a project integrated into OpenAIRE, a non-profit organization created by the European Union to promote open science.\nScientific publications in open access (open access).\nImportant to link the DOI of a dataset in an article, so that they can be traced (in reverse) the DOIs of the publications that use said dataset.",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR Principles</span>"
     ]
   },
   {
-    "objectID": "08-FAIR.html#reference-management",
-    "href": "08-FAIR.html#reference-management",
-    "title": "8  FAIR data principles",
-    "section": "8.4 Reference management",
-    "text": "8.4 Reference management",
+    "objectID": "08-FAIR.html#reference-management-and-open-publication",
+    "href": "08-FAIR.html#reference-management-and-open-publication",
+    "title": "8  FAIR Principles",
+    "section": "8.4 Reference management and open publication",
+    "text": "8.4 Reference management and open publication\nIn addition to the assignment of a DOI to articles, data sets, software and other elements of research work, there are some additional tools that facilitate the identification of the works and the attribution of their authorship (many of them with support explicit in Quarto)\n\nThe ORCID is a free, unique and persistent identifier for individuals who engage in research, innovation and academic activities. Allows you to identify quickly the identity of an author in a publication or scientific work or the person in charge to publish and maintain a resource (dataset, software repository, etc.). Furthermore, the ORCID allows you to generate a list of all the contributions made by the identified individual.\nThere is an extensive list of preprints files that allow the publication of preliminary works that have not yet gone through a review process by pairs for publication in a magazine. More and more publishers accept (and even encourage) publication of these documents to quickly record research progress, due to the high times required by the review and publication process in many prestigious journals.\nPLOS is a non-profit Open Access publisher, which edits and publishes several high-impact, wide-spread digital magazines in many areas including, transformation and sustainability.\n\nA growing number of publishers are also adopting open publishing principles (Open Access), although usually impacting a significant cost on the authors or the institutions to which they are affiliates to cover publication costs.\n\nGuide to creating citable articles with Quarto.\n\n\n\n\n\nKumar, P., Hendriks, T., Panoutsopoulos, H., & Brewster, C. (2024). Investigating FAIR data principles compliance in horizon 2020 funded agri-food and rural development multi-actor projects. Agricultural Systems, 214, 103822. https://doi.org/https://doi.org/10.1016/j.agsy.2023.103822\n\n\nWilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., Silva Santos, L. B. da, Bourne, P. E., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3(1), 1–9. https://doi.org/https://doi.org/10.1038/sdata.2016.18",
     "crumbs": [
       "Publications",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR data principles</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>FAIR Principles</span>"
     ]
   },
   {
@@ -366,7 +399,27 @@
     "href": "09-add-resources.html",
     "title": "9  Additional resources",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, D. E. (1984). Literate programming. Comput. J., 27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97",
+    "text": "9.1 Quarto",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Additional resources</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html#quarto",
+    "href": "09-add-resources.html#quarto",
+    "title": "9  Additional resources",
+    "section": "",
+    "text": "Getting started: https://quarto.org/docs/get-started/.\nComplete guide (online): https://quarto.org/docs/guide/.\nReference of functions and options (online): https://quarto.org/docs/reference/.\nGallery of example projects: https://quarto.org/docs/gallery/.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Additional resources</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html#fair-principles-and-open-science",
+    "href": "09-add-resources.html#fair-principles-and-open-science",
+    "title": "9  Additional resources",
+    "section": "9.2 FAIR principles and open science",
+    "text": "9.2 FAIR principles and open science\n\nArticle on FAIR principles: https://www.nature.com/articles/sdata201618.\nMandate on scientific data management in the Horizon Europe (EC) Programme: https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm.\n\nAll HE projects must publish at the beginning of the work plan a Data Management Plan (DMP), explaining in great detail how they will be obtained, processed, analyze and manage the data used and generated in the project activities.\n\nDMP TOOL: Online tool to create DMPs following a structured procedure.\n\n“How to make your data FAIR”: https://www.openaire.eu/how-to-make-your-data-fair.\nData Management Plan (University) of Cambridge.\n\nROpenSci Community: https://ropensci.org/es/.\nROpenSpain Community: https://ropenspain.es/.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Additional resources</span>"
     ]
@@ -376,7 +429,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Barba, L. A. (2018). Terminologies for reproducible research. arXiv\nPreprint arXiv:1802.03311.\n\n\nBegley, C., & Ellis, L. (2012). Drug\ndevelopment: Raise standards for preclinical cancer research.\nNature.[Online]. 483 (7391).\n\n\nBrainard, J., You, J., et al. (2018). What a massive database of\nretracted papers reveals about science publishing’s “death\npenalty.” Science, 25(1), 1–5.\n\n\nBurman, L. E., Reed, W. R., & Alm, J. (2010). A call for replication\nstudies. Public Finance Review, 38(6), 787–793.\n\n\nIoannidis, J. P. (2005). Why most published research findings are false.\nPLoS Medicine, 2(8), e124.\n\n\nKnuth, D. E. (1984). Literate programming. Comput. J.,\n27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97\n\n\nLeek, J. T., & Peng, R. D. (2015). Reproducible\nresearch can still be wrong: Adopting a prevention approach.\nProceedings of the National Academy of Sciences,\n112(6), 1645–1646.\n\n\nPeng, R. D. (2011). Reproducible research in computational science.\nScience, 334(6060), 1226–1227.\n\n\nWicherts, J. M., Borsboom, D., Kats, J., & Molenaar, D. (2006). The\npoor availability of psychological research data for reanalysis.\nAmerican PAsychologist, 61(7), 726.",
+    "text": "Barba, L. A. (2018). Terminologies for reproducible research. arXiv\nPreprint arXiv:1802.03311.\n\n\nBegley, C., & Ellis, L. (2012). Drug\ndevelopment: Raise standards for preclinical cancer research.\nNature.[Online]. 483 (7391).\n\n\nBrainard, J., You, J., et al. (2018). What a massive database of\nretracted papers reveals about science publishing’s “death\npenalty.” Science, 25(1), 1–5.\n\n\nBurman, L. E., Reed, W. R., & Alm, J. (2010). A call for replication\nstudies. Public Finance Review, 38(6), 787–793.\n\n\nIoannidis, J. P. (2005). Why most published research findings are false.\nPLoS Medicine, 2(8), e124.\n\n\nKnuth, D. E. (1984). Literate programming. Comput. J.,\n27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97\n\n\nKumar, P., Hendriks, T., Panoutsopoulos, H., & Brewster, C. (2024).\nInvestigating FAIR data principles compliance in horizon\n2020 funded agri-food and rural development multi-actor projects.\nAgricultural Systems, 214, 103822. https://doi.org/https://doi.org/10.1016/j.agsy.2023.103822\n\n\nLeek, J. T., & Peng, R. D. (2015). Reproducible\nresearch can still be wrong: Adopting a prevention approach.\nProceedings of the National Academy of Sciences,\n112(6), 1645–1646.\n\n\nPeng, R. D. (2011). Reproducible research in computational science.\nScience, 334(6060), 1226–1227.\n\n\nWicherts, J. M., Borsboom, D., Kats, J., & Molenaar, D. (2006). The\npoor availability of psychological research data for reanalysis.\nAmerican PAsychologist, 61(7), 726.\n\n\nWilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G.,\nAxton, M., Baak, A., Blomberg, N., Boiten, J.-W., Silva Santos, L. B.\nda, Bourne, P. E., et al. (2016). The FAIR\nGuiding Principles for scientific data\nmanagement and stewardship. Scientific Data, 3(1),\n1–9. https://doi.org/https://doi.org/10.1038/sdata.2016.18",
     "crumbs": [
       "References"
     ]

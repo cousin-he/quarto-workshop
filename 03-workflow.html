@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-doctypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Document types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Types of documents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,13 +187,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific articles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scientific publications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-FAIR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR data principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAIR Principles</span></span></a>
   </div>
 </li>
       </ul>
@@ -261,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#required-tools" id="toc-required-tools" class="nav-link active" data-scroll-target="#required-tools"><span class="header-section-number">3.1</span> Required tools</a></li>
+  <li><a href="#document-assembly-line" id="toc-document-assembly-line" class="nav-link active" data-scroll-target="#document-assembly-line"><span class="header-section-number">3.1</span> Document assembly line</a></li>
   <li><a href="#producing-html" id="toc-producing-html" class="nav-link" data-scroll-target="#producing-html"><span class="header-section-number">3.2</span> Producing HTML</a></li>
   <li><a href="#producing-pdf" id="toc-producing-pdf" class="nav-link" data-scroll-target="#producing-pdf"><span class="header-section-number">3.3</span> Producing PDF</a>
   <ul class="collapse">
@@ -292,16 +292,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="required-tools" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="required-tools"><span class="header-section-number">3.1</span> Required tools</h2>
+<p>In this section we are going to explain some more details about the creation process of documents in Quarto, to better understand the components involved in this process and the configuration options we have available. The <a href="#fig-how-it-works-ii" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> summarizes at a high level the phases of creating a document with Quarto.</p>
+<div id="fig-how-it-works-ii" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-how-it-works-ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/rstudio-qmd-how-it-works.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-how-it-works-ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Content creation process with Quarto. Source: <a href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">RStudio</a>.
+</figcaption>
+</figure>
+</div>
+<section id="document-assembly-line" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="document-assembly-line"><span class="header-section-number">3.1</span> Document assembly line</h2>
+<p>We can consider the process of creating a document in Quarto as a chain assembly in which various software tools are applied sequentially to produce the final document in different output formats.</p>
+<ul>
+<li><p>Quarto: The first agent that intervenes in the interpretation of the file with extension <code>.qmd</code> is Quarto. The program must be previously installed on our computer to that the development environment that we decide to use (RStudio, Microsoft VS Code, etc.) can find it. Quarto is responsible for interpreting the content of the file and considering the different configuration options that we have inserted in the header of the document, as well as in executable code fragments, to delegate the construction tasks of the different parts of the document to other tools.</p>
+<p>Quarto is also responsible for automatically inserting some authoring elements of documents (such as callouts, explained in <span class="quarto-unresolved-ref">?sec-callouts</span>), while the generation of other elements (numbering of figures, tables, bibliographic citations, etc.) It is delegated to other tools like Pandoc.</p></li>
+<li><p>Code execution engine (<code>engine</code>): One of the great advantages of document production in Quarto is the possibility of inserting fragments of executable code in our documents. Quarto can <a href="https://quarto.org/docs/computations/execution-options.html#engine-binding">work with different engines</a> (<em>engines</em> in Quarto terminology) that interpret the code and return the result of its execution to integrate it into the final document.</p>
+<ul>
+<li><p>All R language code blocks use the <code>knitr</code> package as <em>engine</em> execution.</p></li>
+<li><p>Executable code blocks in other languages ​​supported in Quarto (Python, Julia, Observable) use the <em>kernel</em> available in the <a href="https://jupyter.org/">Jupyter</a> tool for execution, except in the explicit case that blocks of code are combined in R and Python in the same document.</p></li>
+<li><p>In the particular case that the same document combines code blocks in R and Python, then the Knitr tool is used for the R code along with the R <a href="https://rstudio.github.io/reticulate/"><code>reticulate</code> package</a> to execute the blocks written in Python. This combination has the additional advantage that it is possible “pass” variables and results between the R and Python runtimes, so that we can use variables and data structures created in the R part within our Python code and vice versa.</p></li>
+</ul></li>
+<li><p>Markdown: The intermediate product of all the previous phases is a file in Markdown (<code>.md</code> extension), which already integrates the formatted textual content and many of the results and elements additional generated by the different tools that have come into play up to this point. If useful, this intermediate file can be stored for review or for use it for other purposes. This file is then sent to Pandoc for the last stage document creation.</p></li>
+<li><p>Pandoc: The <a href="https://pandoc.org/">Pandoc project</a> offers a software tool to translate documents between different information representation formats. As you can quickly see On the main page of the project, the list of supported formats is really extensive. For purposes Practically speaking, Quarto uses Pandoc’s ability to receive as input a document in Markdown and generate output in three possible formats: HTML, DOC/DOCX or PDF. The Markdown file must include specific syntax to encode certain elements (cross-references, bibliographic citations, figures, tables, equations, etc.) that we will present in the following chapters, so that Pandoc can interpret these elements and represent them appropriately in each output format.</p></li>
+</ul>
+<p>Finally, it should be noted that document viewing programs are needed to load the documents. Output documents, depending on format: web browser (HTML), MS Word (DOC/DOCX files), PDF viewer (PDF files).</p>
 </section>
 <section id="producing-html" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="producing-html"><span class="header-section-number">3.2</span> Producing HTML</h2>
+<p>The default option for the output format of Quarto documents is to generate an HTML document, which can be viewed with most modern web browsers. This output format has several advantages:</p>
+<ul>
+<li><p>It is quite likely that the recipient of the document already has one or more browsers installed on your system to view the document, if we send or share it directly to you.</p></li>
+<li><p>It is easier to publish this type of documents on the Web, using one of the different platforms available for this purpose:</p>
+<ul>
+<li><p><a href="https://quartopub.com/">Quarto Pub</a>, a document publishing service that allows are publicly accessible.</p></li>
+<li><p>Individual documents (see <span class="quarto-unresolved-ref">?sec-individual-docs</span>) and books or collections of Documents (see <span class="quarto-unresolved-ref">?sec-books</span>) can be published easily and quickly on publishing sites. hosting software projects such as GitHub or GitLab, which also provide hosting services version control, bug/improvement reporting management, documentation, testing, etc.</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="producing-pdf" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="producing-pdf"><span class="header-section-number">3.3</span> Producing PDF</h2>
+<p>Unlike in HTML, when we generate PDF documents an additional compilation step is added of the document at the end of the entire assembly line, using LaTeX and the compilation engine XeLaTeX to generate PDF output. Therefore, if we select this output option it is <strong>essential</strong> have <strong>a TeX/LaTeX distribution</strong> previously installed on our system, to compile and generate the documents. If we do not have any yet, you can <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">install TinyTeX</a>, a lightweight distribution of <a href="https://tug.org/texlive/">TeX Live</a> which is much smaller in size (~100 MB vs. to more than 4 GB of full TeX Live).</p>
 <section id="customising-pdf-documents" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="customising-pdf-documents"><span class="header-section-number">3.3.1</span> Customising PDF documents</h3>
+<p>Predefined LaTeX document templates can be used. By default, Quarto uses various templates from the LaTeX package collection <a href="https://ctan.org/pkg/koma-script">koma-script</a>.</p>
+<p>Some of these templates can work relatively easily in Quarto, while Others require some adaptation, for which some knowledge about Latex. This is probably a more advanced topic for many users, so for now I don’t We are going to discuss it in this introductory workshop.</p>
+<p>However, as an example, we offer below a list of some examples that illustrate the enormous possibilities of this type of templates:</p>
+<ul>
+<li><p>Professor R.J. Hyndman has published <a href="https://robjhyndman.com/hyndsight/quarto_templates.html">Monash University Quarto document templates</a>, that can be used as a starting point to customize them in our own projects.</p></li>
+<li><p>The repository <a href="https://github.com/Jupyter4Science/awesome-quarto-thesis">Awesome Quarto Thesis</a> collects a list of Quarto templates to generate TFG/TFM reports and doctoral theses for some universities. Also linked is a <a href="https://github.com/nmfs-opensci/quarto-thesis">generic extension template</a> for Quarto, designed to make it easier for other users to customize it according to the criteria marked by their own institution to generate these jobs.</p></li>
+</ul>
 
 
 </section>
@@ -730,8 +772,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-doctypes.html" class="pagination-link" aria-label="Document types">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Document types</span></span>
+      <a href="./02-doctypes.html" class="pagination-link" aria-label="Types of documents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Types of documents</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
