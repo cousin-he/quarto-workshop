@@ -1,21 +1,85 @@
-# Document types
+# Types of documents
+
+In this chapter, we present the main types of documents and
+collections of scientific content that we can generate with Quarto.
 
 ## Individual documents
 
+The easiest way to work with Quarto is to create a document
+individual. Said document may use the sections or *chunks*
+of code to read input data or download it from some source,
+process them, analyze them and display the results. Graphics can be added,
+tables, equations, bibliographic references and many other elements.
+
+The documents always have a standard structure:
+
+- *Preamble*: in which configuration options are specified for the
+creation of the document with Quarto and its associated tools.
+- *Body*: the section that houses the main content of the document,
+including sections of Markdown-formatted text and sections of code
+executable. The software code may be shown, if useful, or
+be hidden in the final result.
+- *References*: References are included at the end of the document
+bibliographical, as is usual in scientific texts.
 
 ## Books
 
+The natural evolution of the previous case is to gather a collection of documents
+individuals in a single book. *Quarto books* allows you to create this type of
+documents, structured in parts, chapters and sections. The options of
+configuration will allow you to create an introductory cover for the site
+website that contains the chapters (one document per chapter) or the elements
+necessary to create a PDF book, similar to those published by a
+editorial.
 
-## Manuscripts (scholarly articles)
+## Articles and publications
+
+One of the key results in any scientific process is the production of articles
+and publications (technical reports, etc.) that collect the results and progress
+achieved scientists. In this case, Quarto can also help us, with the
+collaboration of other essential elements such as the R package `rticles`, which
+provides templates to generate articles according to the specifications of the
+main scientific publications and publishers in a multitude of fields of
+knowledge.
 
 
 ## Presentations
 
+It is also possible to generate presentations (usually in HTML format) with slides
+through Quarto. In this case, we would have the support of several packages and environments
+of creating web presentations at our disposal, such as `reveal.js` (HTML),
+Beamer (for LaTeX/PDF) or MS Office PPTX format.
+
+We will not discuss this case in this workshop, but you can obtain more information in the
+online guide, available at <https://quarto.org/docs/presentations/>.
+
 
 ## Websites
 
+Another option that may be interesting is to create personal websites (for example, for
+show our CV and a selection of featured works, publications, etc.), blogs and even
+corporate websites (organization, research group) quickly using Quarto.
+There are numerous free and paid templates now available to create websites with a beautiful look. 
+harmonized, although we will need to learn a little HTML and CSS to be able to customize further
+our website.
+
+Here is an example of an environmental technology researcher website created with
+Fourth: <https://www.mm218.dev/>. More examples of different types of websites generated with
+Quarto: <https://drganghe.github.io/quarto-academic-site-examples.html>.
+
+More information and tutorials for creating websites with Quarto can be found at
+<https://quarto.org/docs/websites/>.
+
 
 ## Dashboards
+
+Finally, it is possible to create custom dashboards for monitoring.
+of data, analysis of models and results or for examples and teaching applications using
+Quarto, as described in the guide <https://quarto.org/docs/dashboards/>.
+
+In this case we can include among the tools [Shiny](https://shiny.posit.co/), a package
+software for R (also available for Python) with which to create interactive applications based
+into data quickly and easily.
 
 
 
