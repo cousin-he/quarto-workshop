@@ -86,7 +86,7 @@ platforms available for this purpose:
   hosting software projects such as GitHub or GitLab, which also provide hosting services
   version control, bug/improvement reporting management, documentation, testing, etc.
 
-## Producing PDF
+## Producing PDF {#sec-pdf-reqs}
 
 Unlike in HTML, when we generate PDF documents an additional compilation step is added
 of the document at the end of the entire assembly line, using LaTeX and the compilation engine
