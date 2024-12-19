@@ -1,11 +1,211 @@
-# Creating books
+# Books {#sec-books}
 
-## Authoring tools
+Now that we know all the basic elements for creating individual literary programming
+documents with Quarto, the natural evolution is to ask ourselves if we can manage 
+ordered collections of documents in a single project to, for example, create a book, 
+a laboratory notebook, or an experiment log.
 
-## Reference management
+Book-type projects in Quarto are the answer to these needs, allowing us to group 
+and organize several individual documents in a single website or a single volume 
+(PDF) for publication.
+
+## Creating a `book` project
+
+The first step is to create a `book` project, using
+the IDE of our choice, for example, RStudio. The [@fig-new-quarto-book-project] shows
+the RStudio interface for creating a new `book` project with Quarto. As usual, we 
+select a name for the directory that stores the project as shown in the [@fig-book-new-dir].
+
+![RStudio interface for creating a new Quarto project of type *book*.](img/new-book-quarto-project.png){#fig-new-quarto-book-project width=80%}
+
+![Dialog to indicate the name of the directory that stores the *book* project and some basic configuration options, such as the execution engine for code blocks embedded in documents (highlighted in red).](img/book-new-dir.png){#fig-book-new-dir width=80%}
+
+- [Home page for the Quarto tutorial on books](https://quarto.org/docs/books/).
+
+
+## Configuration options
+
+Unlike individual documents, in projects such as `book` type projects that
+group several documents (`.qmd` files) into a single collection, we can specify global
+configuration options for the entire project in a separate `_quarto.yml` file, which
+must be present in the root directory of our project.
+
+By default, the configuration options presented by this file in a newly created project of this
+type are the following.
+
+```yaml
+project:
+  type: book
+
+book:
+  title: "First book"
+  author: "Norah Jones"
+  date: "20/12/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+```
+
+The new elements in this list of options are:
+
+- `project` --> `type: book`: Allows you to indicate the type of project
+you want to set up so that Quarto adjusts its behavior and can
+group a collection of documents. It activates the interpretation of options
+related to this type of project.
+
+- `book`: New category of options that indicates the specific configuration
+applicable to all documents in this project, as well as global options. For 
+instance, the title, author, and date will be displayed on a special
+cover page.
+
+- `chapters`: New subcategory of options that allows you to insert a list of file
+names that contain the different sections or chapters of your book.
+
+We must keep in mind that the sections or chapters will be processed
+in exactly the same order in which they appear in this list, so it is important
+to pay attention to this order.
+
+## Home page (*preface*)
+
+In addition to the new `_quarto.yml` file, another file called `index.qmd` is generated which
+contains the material that will be presented as the cover of the book or collection of documents.
+
+A general file is also created in other types of projects, for example for the
+home page of a website generated with Quarto. It is in this cover page that the general 
+configuration information is contained (title, authors, date, etc.).
+
+The content of this file is the same as in any other document, following the same
+Quarto syntax rules for `.qmd` files that we have already seen.
+
+It should also be noted that the title of this cover page is not usually numbered and, 
+therefore, it is common for it to be configured as:
+
+```markdown
+# Preface {.unnumbered}
+```
+
+## Writing tools
+
+All the writing tools we have already seen in the [@sec-individual-docs] can be
+used in the case of chapters in a book. It is important to note that links to
+sections also work from documents in other sections or chapters of the book,
+even if they are in a different file.
+
+### Book structure
+
+In addition to standard chapters, we can also organize the book's content into parts
+(which group together related chapters), as well as appendices, presented after 
+the main content of the book to provide additional material.
+
+Let's look at an example of a book configuration that includes several parts and that 
+we can integrate into the rest of the project configuration, within the `_quarto.yml` 
+file.
+
+```yaml
+chapters:
+  - index.qmd
+  - preface.qmd
+  - part: dice.qmd
+    chapters: 
+      - basics.qmd
+      - packages.qmd
+  - part: cards.qmd
+    chapters:
+      - objects.qmd
+      - notation.qmd
+      - modifying.qmd
+      - environments.qmd
+```
+
+It is important to note that in this case the `part` option can accept either a file 
+with a `.qmd` extension (as in the example), or a quoted string that
+simply indicates a title for the part.
+
+Now we present an example for appendices.
+
+```yaml
+book:
+  title: "mybook"
+  author: "Jane Doe"
+  date: "5/9/2021"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+  appendices:
+    - tools.qmd
+    - resources.qmd
+```
+
+It is important to note that these configuration options generate the appropriate output
+(parts and appendices) both in the case of HTML websites and when generating a PDF document,
+following in the second case the standard LaTeX syntax to indicate the structure of the document.
+
+- [Example of a well-known book by H. Wickham created in Quarto and publicly accessible, which is
+organized in parts that group chapters](https://r4ds.hadley.nz/).
+- [Additional configuration options for the structure of a book in Quarto](https://quarto.org/docs/books/book-structure.html).
+
+## Managing references
+
+As mentioned above, internal references (to figures, tables, equations, and other 
+sections of the document, among other items) work exactly the same as in individual documents (see
+[@sec-doc-sections]), with the added advantage that in a book that combines different chapters,
+the numbering of all items is updated to reflect the chapter number as a prefix to the item 
+number (e.g., "Figure 1.2" for the second figure in chapter 1).
+
+It is important to note that for automatic item numbering to work properly, it is
+important that items begin with the appropriate prefix (`#sec-` for sections, `#fig-` for 
+figures, etc.).
+
+
+## Project preview
+
+To preview on our local machine the project we have created using RStudio, we must
+select the *Build* tab in the upper right panel and press the *Render Book* button to generate
+all the output formats that are configured in the `_quarto.yml` file, as shown
+in [@fig-render-book]. There is also the option to select only one of these output formats
+by carefully clicking on the small arrow next to the "Render Book" button, to display 
+a list of output format options and select one of them, as shown in [@fig-preview-select-book]
+
+![Button to launch the book preview process in RStudio.](/img/render-book.png){#fig-render-book width=80%}
+
+![List of configuration options that appear when clicking the arrow next to the *Render Book* button](img/preview-select-book.png){#fig-preview-select-book width=80%}
+
+
+## Publication options {#sec-pub-options}
+
+There are several [publishing options] to make our book or collection of documents 
+available to other users, including:
+
+- Quarto Pub.
+- GitHub Pages, very convenient if we want an integrated solution for version management 
+of our project's source code.
+- Netlify, a professional web publishing platform that allows more configuration and setup 
+options.
+
+It is also possible to use other services to publish documents, books, and websites with 
+Quarto, including GitLab (an alternative to GitHub), although they will not be as automated 
+and integrated with the tools offered by Quarto as the previous options.
 
 
 ## Customisation and templates
 
+As we have explained for individual documents, analogous configuration options can be 
+used to customize the style and design theme that we can apply to our book or collection 
+of documents, both in the HTML website version and in the PDF output version.
 
-
+- [Guide to customizing the style of books in Quarto](https://quarto.org/docs/books/book-output.html).
+- [Example gallery of some styles to customize the appearance of Quarto documents](https://github.com/quarto-dev/quarto-gallery/tree/main).
