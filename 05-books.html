@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Creating books – Scientific documents with Quarto</title>
+<title>5&nbsp; Books – Scientific documents with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-books.html">Quarto books</a></li><li class="breadcrumb-item"><a href="./05-books.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating books</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-books.html">Quarto books</a></li><li class="breadcrumb-item"><a href="./05-books.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Books</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-singledoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single Documents</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual Documents</span></span></a>
   </div>
 </li>
       </ul>
@@ -164,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-books.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating books</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Books</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -261,18 +295,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#authoring-tools" id="toc-authoring-tools" class="nav-link active" data-scroll-target="#authoring-tools"><span class="header-section-number">5.1</span> Authoring tools</a></li>
-  <li><a href="#reference-management" id="toc-reference-management" class="nav-link" data-scroll-target="#reference-management"><span class="header-section-number">5.2</span> Reference management</a></li>
-  <li><a href="#customisation-and-templates" id="toc-customisation-and-templates" class="nav-link" data-scroll-target="#customisation-and-templates"><span class="header-section-number">5.3</span> Customisation and templates</a></li>
+  <li><a href="#creating-a-book-project" id="toc-creating-a-book-project" class="nav-link active" data-scroll-target="#creating-a-book-project"><span class="header-section-number">5.1</span> Creating a <code>book</code> project</a></li>
+  <li><a href="#configuration-options" id="toc-configuration-options" class="nav-link" data-scroll-target="#configuration-options"><span class="header-section-number">5.2</span> Configuration options</a></li>
+  <li><a href="#home-page-preface" id="toc-home-page-preface" class="nav-link" data-scroll-target="#home-page-preface"><span class="header-section-number">5.3</span> Home page (<em>preface</em>)</a></li>
+  <li><a href="#writing-tools" id="toc-writing-tools" class="nav-link" data-scroll-target="#writing-tools"><span class="header-section-number">5.4</span> Writing tools</a>
+  <ul class="collapse">
+  <li><a href="#book-structure" id="toc-book-structure" class="nav-link" data-scroll-target="#book-structure"><span class="header-section-number">5.4.1</span> Book structure</a></li>
+  </ul></li>
+  <li><a href="#managing-references" id="toc-managing-references" class="nav-link" data-scroll-target="#managing-references"><span class="header-section-number">5.5</span> Managing references</a></li>
+  <li><a href="#project-preview" id="toc-project-preview" class="nav-link" data-scroll-target="#project-preview"><span class="header-section-number">5.6</span> Project preview</a></li>
+  <li><a href="#sec-pub-options" id="toc-sec-pub-options" class="nav-link" data-scroll-target="#sec-pub-options"><span class="header-section-number">5.7</span> Publication options</a></li>
+  <li><a href="#customisation-and-templates" id="toc-customisation-and-templates" class="nav-link" data-scroll-target="#customisation-and-templates"><span class="header-section-number">5.8</span> Customisation and templates</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/cousin-he/quarto-workshop/blob/main/05-books.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/edit/main/05-books.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cousin-he/quarto-workshop/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-books.html">Quarto books</a></li><li class="breadcrumb-item"><a href="./05-books.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating books</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-books.html">Quarto books</a></li><li class="breadcrumb-item"><a href="./05-books.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Books</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating books</span></h1>
+<h1 class="title"><span id="sec-books" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Books</span></span></h1>
 </div>
 
 
@@ -289,14 +331,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="authoring-tools" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="authoring-tools"><span class="header-section-number">5.1</span> Authoring tools</h2>
+<p>Now that we know all the basic elements for creating individual literary programming documents with Quarto, the natural evolution is to ask ourselves if we can manage ordered collections of documents in a single project to, for example, create a book, a laboratory notebook, or an experiment log.</p>
+<p>Book-type projects in Quarto are the answer to these needs, allowing us to group and organize several individual documents in a single website or a single volume (PDF) for publication.</p>
+<section id="creating-a-book-project" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="creating-a-book-project"><span class="header-section-number">5.1</span> Creating a <code>book</code> project</h2>
+<p>The first step is to create a <code>book</code> project, using the IDE of our choice, for example, RStudio. The <a href="#fig-new-quarto-book-project" class="quarto-xref">Figure&nbsp;<span>5.1</span></a> shows the RStudio interface for creating a new <code>book</code> project with Quarto. As usual, we select a name for the directory that stores the project as shown in the <a href="#fig-book-new-dir" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>.</p>
+<div id="fig-new-quarto-book-project" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-new-quarto-book-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/new-book-quarto-project.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-new-quarto-book-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: RStudio interface for creating a new Quarto project of type <em>book</em>.
+</figcaption>
+</figure>
+</div>
+<div id="fig-book-new-dir" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-book-new-dir-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/book-new-dir.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-book-new-dir-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Dialog to indicate the name of the directory that stores the <em>book</em> project and some basic configuration options, such as the execution engine for code blocks embedded in documents (highlighted in red).
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://quarto.org/docs/books/">Home page for the Quarto tutorial on books</a>.</li>
+</ul>
 </section>
-<section id="reference-management" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="reference-management"><span class="header-section-number">5.2</span> Reference management</h2>
+<section id="configuration-options" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="configuration-options"><span class="header-section-number">5.2</span> Configuration options</h2>
+<p>Unlike individual documents, in projects such as <code>book</code> type projects that group several documents (<code>.qmd</code> files) into a single collection, we can specify global configuration options for the entire project in a separate <code>_quarto.yml</code> file, which must be present in the root directory of our project.</p>
+<p>By default, the configuration options presented by this file in a newly created project of this type are the following.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"First book"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Norah Jones"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"20/12/2024"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">chapters</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> index.qmd</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> intro.qmd</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> summary.qmd</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> references.qmd</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> scrreprt</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The new elements in this list of options are:</p>
+<ul>
+<li><p><code>project</code> –&gt; <code>type: book</code>: Allows you to indicate the type of project you want to set up so that Quarto adjusts its behavior and can group a collection of documents. It activates the interpretation of options related to this type of project.</p></li>
+<li><p><code>book</code>: New category of options that indicates the specific configuration applicable to all documents in this project, as well as global options. For instance, the title, author, and date will be displayed on a special cover page.</p></li>
+<li><p><code>chapters</code>: New subcategory of options that allows you to insert a list of file names that contain the different sections or chapters of your book.</p></li>
+</ul>
+<p>We must keep in mind that the sections or chapters will be processed in exactly the same order in which they appear in this list, so it is important to pay attention to this order.</p>
 </section>
-<section id="customisation-and-templates" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="customisation-and-templates"><span class="header-section-number">5.3</span> Customisation and templates</h2>
+<section id="home-page-preface" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="home-page-preface"><span class="header-section-number">5.3</span> Home page (<em>preface</em>)</h2>
+<p>In addition to the new <code>_quarto.yml</code> file, another file called <code>index.qmd</code> is generated which contains the material that will be presented as the cover of the book or collection of documents.</p>
+<p>A general file is also created in other types of projects, for example for the home page of a website generated with Quarto. It is in this cover page that the general configuration information is contained (title, authors, date, etc.).</p>
+<p>The content of this file is the same as in any other document, following the same Quarto syntax rules for <code>.qmd</code> files that we have already seen.</p>
+<p>It should also be noted that the title of this cover page is not usually numbered and, therefore, it is common for it to be configured as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {.unnumbered}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="writing-tools" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="writing-tools"><span class="header-section-number">5.4</span> Writing tools</h2>
+<p>All the writing tools we have already seen in the <a href="04-singledoc.html" class="quarto-xref"><span>Chapter 4</span></a> can be used in the case of chapters in a book. It is important to note that links to sections also work from documents in other sections or chapters of the book, even if they are in a different file.</p>
+<section id="book-structure" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="book-structure"><span class="header-section-number">5.4.1</span> Book structure</h3>
+<p>In addition to standard chapters, we can also organize the book’s content into parts (which group together related chapters), as well as appendices, presented after the main content of the book to provide additional material.</p>
+<p>Let’s look at an example of a book configuration that includes several parts and that we can integrate into the rest of the project configuration, within the <code>_quarto.yml</code> file.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chapters</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> index.qmd</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> preface.qmd</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">part</span><span class="kw">:</span><span class="at"> dice.qmd</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">chapters</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> basics.qmd</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> packages.qmd</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">part</span><span class="kw">:</span><span class="at"> cards.qmd</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">chapters</span><span class="kw">:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> objects.qmd</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> notation.qmd</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> modifying.qmd</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> environments.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is important to note that in this case the <code>part</code> option can accept either a file with a <code>.qmd</code> extension (as in the example), or a quoted string that simply indicates a title for the part.</p>
+<p>Now we present an example for appendices.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"mybook"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jane Doe"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"5/9/2021"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">chapters</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> index.qmd</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> intro.qmd</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> summary.qmd</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> references.qmd</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">appendices</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> tools.qmd</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> resources.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is important to note that these configuration options generate the appropriate output (parts and appendices) both in the case of HTML websites and when generating a PDF document, following in the second case the standard LaTeX syntax to indicate the structure of the document.</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/">Example of a well-known book by H. Wickham created in Quarto and publicly accessible, which is organized in parts that group chapters</a>.</li>
+<li><a href="https://quarto.org/docs/books/book-structure.html">Additional configuration options for the structure of a book in Quarto</a>.</li>
+</ul>
+</section>
+</section>
+<section id="managing-references" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="managing-references"><span class="header-section-number">5.5</span> Managing references</h2>
+<p>As mentioned above, internal references (to figures, tables, equations, and other sections of the document, among other items) work exactly the same as in individual documents (see <a href="04-singledoc.html#sec-doc-sections" class="quarto-xref"><span>Section 4.5.1</span></a>), with the added advantage that in a book that combines different chapters, the numbering of all items is updated to reflect the chapter number as a prefix to the item number (e.g., “Figure 1.2” for the second figure in chapter 1).</p>
+<p>It is important to note that for automatic item numbering to work properly, it is important that items begin with the appropriate prefix (<code>#sec-</code> for sections, <code>#fig-</code> for figures, etc.).</p>
+</section>
+<section id="project-preview" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="project-preview"><span class="header-section-number">5.6</span> Project preview</h2>
+<p>To preview on our local machine the project we have created using RStudio, we must select the <em>Build</em> tab in the upper right panel and press the <em>Render Book</em> button to generate all the output formats that are configured in the <code>_quarto.yml</code> file, as shown in <a href="#fig-render-book" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>. There is also the option to select only one of these output formats by carefully clicking on the small arrow next to the “Render Book” button, to display a list of output format options and select one of them, as shown in <a href="#fig-preview-select-book" class="quarto-xref">Figure&nbsp;<span>5.4</span></a></p>
+<div id="fig-render-book" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-render-book-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./img/render-book.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-render-book-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: Button to launch the book preview process in RStudio.
+</figcaption>
+</figure>
+</div>
+<div id="fig-preview-select-book" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-preview-select-book-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/preview-select-book.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-preview-select-book-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: List of configuration options that appear when clicking the arrow next to the <em>Render Book</em> button
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-pub-options" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="sec-pub-options"><span class="header-section-number">5.7</span> Publication options</h2>
+<p>There are several [publishing options] to make our book or collection of documents available to other users, including:</p>
+<ul>
+<li>Quarto Pub.</li>
+<li>GitHub Pages, very convenient if we want an integrated solution for version management of our project’s source code.</li>
+<li>Netlify, a professional web publishing platform that allows more configuration and setup options.</li>
+</ul>
+<p>It is also possible to use other services to publish documents, books, and websites with Quarto, including GitLab (an alternative to GitHub), although they will not be as automated and integrated with the tools offered by Quarto as the previous options.</p>
+</section>
+<section id="customisation-and-templates" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="customisation-and-templates"><span class="header-section-number">5.8</span> Customisation and templates</h2>
+<p>As we have explained for individual documents, analogous configuration options can be used to customize the style and design theme that we can apply to our book or collection of documents, both in the HTML website version and in the PDF output version.</p>
+<ul>
+<li><a href="https://quarto.org/docs/books/book-output.html">Guide to customizing the style of books in Quarto</a>.</li>
+<li><a href="https://github.com/quarto-dev/quarto-gallery/tree/main">Example gallery of some styles to customize the appearance of Quarto documents</a>.</li>
+</ul>
 
 
 </section>
@@ -724,8 +916,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-singledoc.html" class="pagination-link" aria-label="Single Documents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single Documents</span></span>
+      <a href="./04-singledoc.html" class="pagination-link" aria-label="Individual Documents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual Documents</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

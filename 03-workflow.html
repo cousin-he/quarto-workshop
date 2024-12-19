@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-singledoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single Documents</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual Documents</span></span></a>
   </div>
 </li>
       </ul>
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-books.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating books</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Books</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#document-assembly-line" id="toc-document-assembly-line" class="nav-link active" data-scroll-target="#document-assembly-line"><span class="header-section-number">3.1</span> Document assembly line</a></li>
   <li><a href="#producing-html" id="toc-producing-html" class="nav-link" data-scroll-target="#producing-html"><span class="header-section-number">3.2</span> Producing HTML</a></li>
-  <li><a href="#producing-pdf" id="toc-producing-pdf" class="nav-link" data-scroll-target="#producing-pdf"><span class="header-section-number">3.3</span> Producing PDF</a>
+  <li><a href="#sec-pdf-reqs" id="toc-sec-pdf-reqs" class="nav-link" data-scroll-target="#sec-pdf-reqs"><span class="header-section-number">3.3</span> Producing PDF</a>
   <ul class="collapse">
   <li><a href="#customising-pdf-documents" id="toc-customising-pdf-documents" class="nav-link" data-scroll-target="#customising-pdf-documents"><span class="header-section-number">3.3.1</span> Customising PDF documents</a></li>
   </ul></li>
@@ -308,7 +308,7 @@ Figure&nbsp;3.1: Content creation process with Quarto. Source: <a href="https://
 <p>We can consider the process of creating a document in Quarto as a chain assembly in which various software tools are applied sequentially to produce the final document in different output formats.</p>
 <ul>
 <li><p>Quarto: The first agent that intervenes in the interpretation of the file with extension <code>.qmd</code> is Quarto. The program must be previously installed on our computer to that the development environment that we decide to use (RStudio, Microsoft VS Code, etc.) can find it. Quarto is responsible for interpreting the content of the file and considering the different configuration options that we have inserted in the header of the document, as well as in executable code fragments, to delegate the construction tasks of the different parts of the document to other tools.</p>
-<p>Quarto is also responsible for automatically inserting some authoring elements of documents (such as callouts, explained in <span class="quarto-unresolved-ref">?sec-callouts</span>), while the generation of other elements (numbering of figures, tables, bibliographic citations, etc.) It is delegated to other tools like Pandoc.</p></li>
+<p>Quarto is also responsible for automatically inserting some authoring elements of documents (such as callouts, explained in <a href="04-singledoc.html#sec-callouts" class="quarto-xref"><span>Section 4.5.4</span></a>), while the generation of other elements (numbering of figures, tables, bibliographic citations, etc.) It is delegated to other tools like Pandoc.</p></li>
 <li><p>Code execution engine (<code>engine</code>): One of the great advantages of document production in Quarto is the possibility of inserting fragments of executable code in our documents. Quarto can <a href="https://quarto.org/docs/computations/execution-options.html#engine-binding">work with different engines</a> (<em>engines</em> in Quarto terminology) that interpret the code and return the result of its execution to integrate it into the final document.</p>
 <ul>
 <li><p>All R language code blocks use the <code>knitr</code> package as <em>engine</em> execution.</p></li>
@@ -328,12 +328,12 @@ Figure&nbsp;3.1: Content creation process with Quarto. Source: <a href="https://
 <li><p>It is easier to publish this type of documents on the Web, using one of the different platforms available for this purpose:</p>
 <ul>
 <li><p><a href="https://quartopub.com/">Quarto Pub</a>, a document publishing service that allows are publicly accessible.</p></li>
-<li><p>Individual documents (see <span class="quarto-unresolved-ref">?sec-individual-docs</span>) and books or collections of Documents (see <span class="quarto-unresolved-ref">?sec-books</span>) can be published easily and quickly on publishing sites. hosting software projects such as GitHub or GitLab, which also provide hosting services version control, bug/improvement reporting management, documentation, testing, etc.</p></li>
+<li><p>Individual documents (see <a href="04-singledoc.html" class="quarto-xref"><span>Chapter 4</span></a>) and books or collections of Documents (see <a href="05-books.html" class="quarto-xref"><span>Chapter 5</span></a>) can be published easily and quickly on publishing sites. hosting software projects such as GitHub or GitLab, which also provide hosting services version control, bug/improvement reporting management, documentation, testing, etc.</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="producing-pdf" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="producing-pdf"><span class="header-section-number">3.3</span> Producing PDF</h2>
+<section id="sec-pdf-reqs" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-pdf-reqs"><span class="header-section-number">3.3</span> Producing PDF</h2>
 <p>Unlike in HTML, when we generate PDF documents an additional compilation step is added of the document at the end of the entire assembly line, using LaTeX and the compilation engine XeLaTeX to generate PDF output. Therefore, if we select this output option it is <strong>essential</strong> have <strong>a TeX/LaTeX distribution</strong> previously installed on our system, to compile and generate the documents. If we do not have any yet, you can <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">install TinyTeX</a>, a lightweight distribution of <a href="https://tug.org/texlive/">TeX Live</a> which is much smaller in size (~100 MB vs. to more than 4 GB of full TeX Live).</p>
 <section id="customising-pdf-documents" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="customising-pdf-documents"><span class="header-section-number">3.3.1</span> Customising PDF documents</h3>
@@ -777,8 +777,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-singledoc.html" class="pagination-link" aria-label="Single Documents">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single Documents</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-singledoc.html" class="pagination-link" aria-label="Individual Documents">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual Documents</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
