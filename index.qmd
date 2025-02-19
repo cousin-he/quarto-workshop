@@ -1,25 +1,13 @@
 # Preface {.unnumbered}
 
-This workshop describes how to use Quarto, software for producing 
-scientific documents and publications, in ecology and plant research.
+This workshop describes how to use Quarto, a software for producing scientific documents and publications in ecology and plant research.
 
-Quarto is a powerful and versatile tool for researchers implementing
-**reproducible** workflows. The quest for open-access research, including the final
-product (manuscripts) and ancillary research materials like source code,
-datasets, figures, pipelines or setup files, has become a prominent concern
-among scholars and practitioners in many fields. Prestigious publications
-require authors to submit these materials alongside manuscript drafts to let 
-other colleagues reproduce and validate the results, replicate
-studies in new cohorts or improve their interpretability.
+Quarto is a powerful and versatile tool for researchers implementing **reproducible** workflows. The quest for open-access research, including the final product (manuscripts) and ancillary research materials like source code, datasets, figures, pipelines or setup files, has become a prominent concern among scholars and practitioners in many fields. Prestigious publications require authors to submit these materials alongside manuscript drafts to let other colleagues reproduce and validate the results, replicate studies in new cohorts or improve their interpretability.
 
-Quarto combines formatted text and executable source code chunks into
-a single document. Code *chunks* can be written in different programming
-languages such as R, Python, Julia or Observable. As we will see, it is 
-possible to combine different programming languages in the same document 
-or collection of documents, increasing the flexibility of this tool.
+Quarto combines formatted text and executable source code chunks into a single document. Code *chunks* can be written in different programming languages such as R, Python, Julia or Observable. As we will see, it is possible to combine different programming languages in the same document or collection of documents, increasing the flexibility of this tool.
 
 This is a **practical guide**, presenting hands-on examples and code to 
-produce your own Quarto documents quickly. In addition,
+produce your Quarto documents quickly. In addition,
 key concepts and best practices are also presented to steer
 new Quarto apprentices in the right direction.
 
