@@ -23,7 +23,7 @@ book:
     - part: "Quarto books"
       chapters:
         - 05-books.qmd
-        - 06-field-guide.qmd
+        - 06-reports.qmd
     - part: "Publications"
       chapters:
         - 07-manuscripts.qmd
